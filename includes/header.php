@@ -4,7 +4,7 @@ include('config.php');
 
 @$username = $_SESSION['username'];
 
-/* if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) {
   header("location:login");
 } else {
 
@@ -22,7 +22,7 @@ include('config.php');
   } else {
     echo "";
   }
-} */
+}
 
 
 //set timeout period in seconds
