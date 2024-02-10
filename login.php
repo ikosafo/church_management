@@ -96,7 +96,7 @@ session_destroy(); ?>
           usertype: usertype
         },
         success: function(text) {
-          alert(text);
+          //alert(text);
 
           if (text == 1) {
             window.location.href = "/branch/";
