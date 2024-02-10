@@ -4,24 +4,11 @@ include('config.php');
 
 @$username = $_SESSION['username'];
 
-/* $getmainuser = $mysqli->query("select * from system_config where username = '$username'");
-if (mysqli_num_rows($getmainuser) == '1') {
-  $user_id = '';
-  $perm = '1';
-} else {
-  $getuserid = $mysqli->query("select * from staff where username = '$username'");
-  $resuserid = $getuserid->fetch_assoc();
-  $user_id = $resuserid['stid'];
-  $perm = '2';
-}
-
- */
-
-if (!isset($_SESSION['username'])) {
+/* if (!isset($_SESSION['username'])) {
   header("location:login");
 } else {
 
-  /* Check whether system configuration has been filled  */
+  //Check whether system configuration has been filled
   $getsystemconfig = $mysqli->query("select * from system_config");
   $getcount = mysqli_num_rows($getsystemconfig);
 
@@ -35,7 +22,7 @@ if (!isset($_SESSION['username'])) {
   } else {
     echo "";
   }
-}
+} */
 
 
 //set timeout period in seconds
