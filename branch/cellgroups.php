@@ -14,7 +14,7 @@
                     <div class="col-md-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="error_loc">Branches</h4>
+                                <h4 class="card-title" id="error_loc">Cell Groups</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -49,7 +49,7 @@
 <script>
     //Load form
     $.ajax({
-        url: "ajaxscripts/forms/adddepartment.php",
+        url: "ajaxscripts/forms/addcellgroup.php",
         beforeSend: function() {
             $.blockUI({
                 message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
@@ -71,7 +71,7 @@
 
     //Load table
     $.ajax({
-        url: "ajaxscripts/tables/departments.php",
+        url: "ajaxscripts/tables/cellgroups.php",
         beforeSend: function() {
             $.blockUI({
                 message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'

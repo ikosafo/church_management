@@ -1,6 +1,6 @@
 <?php
 include('includes/header.php');
-include('../functions.php');
+include('functions.php');
 ?>
 
 
@@ -22,16 +22,22 @@ include('../functions.php');
                                 <div>
                                     <h2 class="fw-bolder mb-0">
                                         <?php
-                                        $getbranch = $mysqli->query("select * from `branch`");
-                                        echo mysqli_num_rows($getbranch);
+                                        // Get total sales in a day
+                                        $gettodaysale = $mysqli->query("SELECT SUM(totalprice) AS tot FROM sales WHERE SUBSTRING(datetime, 1, 10) = CURDATE()");
+                                        $ressale = $gettodaysale->fetch_assoc();
+
+                                        // Check if $ressale['tot'] is not null before using number_format
+                                        $totalSales = isset($ressale['tot']) ? number_format($ressale['tot'], 2) : '0.00';
+
+                                        echo $totalSales;
                                         ?>
 
                                     </h2>
-                                    <p class="card-text">Branches</p>
+                                    <p class="card-text">Sales for Today</p>
                                 </div>
                                 <div class="avatar bg-light-primary p-50 m-0">
                                     <div class="avatar-content">
-                                        <i data-feather="home" style="width: 22px;height:22px"></i>
+                                        <i data-feather="shopping-cart" style="width: 22px;height:22px"></i>
                                     </div>
                                 </div>
                             </div>
@@ -43,15 +49,16 @@ include('../functions.php');
                                 <div>
                                     <h2 class="fw-bolder mb-0">
                                         <?php
-                                        $getusers = $mysqli->query("select * from `users_admin`");
-                                        echo mysqli_num_rows($getusers);
+                                        // Get total sales in a day
+                                        $getthreshold = $mysqli->query("select * from products where  stockthreshold > quantity");
+                                        echo mysqli_num_rows($getthreshold);
                                         ?>
                                     </h2>
-                                    <p class="card-text">Branch Admin</p>
+                                    <p class="card-text">Below Threshold</p>
                                 </div>
                                 <div class="avatar bg-light-warning p-50 m-0">
                                     <div class="avatar-content">
-                                        <i data-feather="user-plus" style="width: 22px;height:22px"></i>
+                                        <i data-feather="alert-triangle" style="width: 22px;height:22px"></i>
                                     </div>
                                 </div>
                             </div>
@@ -62,11 +69,12 @@ include('../functions.php');
                             <div class="card-header">
                                 <div>
                                     <h2 class="fw-bolder mb-0"> <?php
-                                                                $getmem = $mysqli->query("select * from `member`");
-                                                                echo mysqli_num_rows($getmem);
+                                                                // Get total sales in a day
+                                                                $getcount = $mysqli->query("select * from staff where status IS NULL");
+                                                                echo mysqli_num_rows($getcount);
                                                                 ?>
                                     </h2>
-                                    <p class="card-text">Members</p>
+                                    <p class="card-text">Account Holders</p>
                                 </div>
                                 <div class="avatar bg-light-success p-50 m-0">
                                     <div class="avatar-content">
@@ -80,16 +88,16 @@ include('../functions.php');
                         <div class="card">
                             <div class="card-header">
                                 <div>
-                                    <h2 class="fw-bolder mb-0">
-                                        <?php
-                                        $getcon = $mysqli->query("select * from `convert`");
-                                        echo mysqli_num_rows($getcon);
-                                        ?></h2>
-                                    <p class="card-text">New Converts</p>
+                                    <h2 class="fw-bolder mb-0"><?php
+                                                                // Get total sales in a day
+                                                                $getcount = $mysqli->query("select * from products where status IS NULL");
+                                                                echo mysqli_num_rows($getcount);
+                                                                ?></h2>
+                                    <p class="card-text">Total Products</p>
                                 </div>
                                 <div class="avatar bg-light-warning p-50 m-0">
                                     <div class="avatar-content">
-                                        <i data-feather="user" style="width: 22px;height:22px"></i>
+                                        <i data-feather="shopping-bag" style="width: 22px;height:22px"></i>
                                     </div>
                                 </div>
                             </div>
@@ -108,31 +116,31 @@ include('../functions.php');
                                             <h5 class="mb-0">
                                                 <?php
 
-                                                /* if ($perm == '1') {
+                                                if ($perm == '1') {
                                                     echo $username;
                                                 } else {
                                                     //get full name
                                                     $getfullname = $mysqli->query("select * from staff where username = '$username'");
                                                     $resfullname = $getfullname->fetch_assoc();
                                                     echo $fullname = $resfullname['fullname'];
-                                                } */
+                                                }
 
                                                 ?>
                                             </h5>
                                             <small class="text-muted"><?php
-                                                                        /* //Get last updated time
+                                                                        //Get last updated time
                                                                         $gettime = $mysqli->query("select * from logs where section = 'Login'ORDER BY logid DESC LIMIT 1");
                                                                         $restime = $gettime->fetch_assoc();
                                                                         echo "Logged in " . time_elapsed_string($restime['logdate']);
-                                                                        */ ?>
+                                                                        ?>
                                             </small>
                                         </div>
                                     </div>
-                                    <span class="badge rounded-pill badge-light-primary"><?php /* if ($fullname == "Admin") {
+                                    <span class="badge rounded-pill badge-light-primary"><?php if ($fullname == "Admin") {
                                                                                                 echo "Admin";
                                                                                             } else {
                                                                                                 echo "Staff";
-                                                                                            } */ ?></span>
+                                                                                            } ?></span>
                                 </div>
 
                                 <div class="apply-job-package bg-light-primary rounded">
@@ -166,21 +174,22 @@ include('../functions.php');
                                     <div class="card-body">
 
                                         <?php
-                                        /* //Get highest transactions
+                                        //Get highest transactions
                                         $gettransactions = $mysqli->query("SELECT * FROM sales s JOIN tempsales t ON s.`newsaleid` = t.`genid` WHERE 
                       SUBSTRING(s.`datetime`,1,10) = curdate() ORDER BY t.`price` DESC, s.`totalprice` DESC LIMIT 4");
-                                        while ($restransactions = $gettransactions->fetch_assoc()) { */ ?>
+                                        while ($restransactions = $gettransactions->fetch_assoc()) { ?>
 
-                                        <div class="transaction-item">
-                                            <div class="d-flex">
-                                                <div class="transaction-percentage">
-
+                                            <div class="transaction-item">
+                                                <div class="d-flex">
+                                                    <div class="transaction-percentage">
+                                                        <h6 class="transaction-title"><?php echo getProductName($restransactions['prodid']); ?></h6>
+                                                        <small>Quantity: <?php echo $restransactions['quantity']; ?></small>
+                                                    </div>
                                                 </div>
+                                                <div class="fw-bolder text-success"><?php echo $restransactions['price']; ?></div>
                                             </div>
-                                            <div class="fw-bolder text-success"></div>
-                                        </div>
 
-                                        <?php /* } */
+                                        <?php }
                                         ?>
 
 
@@ -218,7 +227,7 @@ include('../functions.php');
 
     function runningTime() {
         $.ajax({
-            url: '../indextimeScript.php',
+            url: 'indextimeScript.php',
             success: function(data) {
                 $('#runningTime').html(data);
             },

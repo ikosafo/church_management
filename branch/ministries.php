@@ -1,102 +1,91 @@
-<?php require('includes/header.php') ?>
-
-<!-- begin:: Subheader -->
-<div class="kt-subheader  kt-grid__item" id="kt_subheader"></div>
-<!-- end:: Subheader -->
+<?php include('includes/header.php') ?>
 
 
-<!-- begin:: Content -->
-<div class="kt-container  kt-grid__item kt-grid__item--fluid">
-    <!--Begin::Dashboard 3-->
+<!-- BEGIN: Content-->
 
-    <div class="row">
-        <div class="col-xl-12">
-            <!--begin:: Widgets/Applications/User/Profile3-->
-            <div class="kt-portlet kt-portlet--height-fluid">
-                <div class="kt-portlet__body">
-                    <div class="kt-portlet__body">
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
 
-                        <div class="kt-portlet__head kt-portlet__head--lg mb-4">
-                            <div class="kt-portlet__head-label">
-                                <h3 class="kt-portlet__head-title">
-                                    Configuration
-                                    <small>Ministries</small>
-                                </h3>
+        <div class="content-body"><!-- Basic Horizontal form layout section start -->
+            <section id="basic-horizontal-layouts">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" id="error_loc">Ministries</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div id="pageform_div"></div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div id="pagetable_div"></div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-
-                        <!--begin::Form-->
-
-                        <div class="form-group row">
-                            <div class="col-md-5 col-xs-12 col-sm-12">
-                                <div id="ministryform_div"></div>
-                            </div>
-                            <div class="col-md-7 col-xs-12 col-sm-12">
-                                <div id="ministrytable_div"></div>
-                            </div>
-                        </div>
-                        <!--end::Form-->
-
                     </div>
+
                 </div>
-            </div>
-            <!--end:: Widgets/Applications/User/Profile3-->
+            </section>
+            <!-- Basic Horizontal form layout section end -->
+
+
+
         </div>
     </div>
-
 </div>
-<!--End::Dashboard 3-->
-<!-- end:: Content -->
 
-<?php require('includes/footer.php') ?>
+<!-- END: Content-->
+
+
+<?php include('includes/footer.php') ?>
 
 
 <script>
-
+    //Load form
     $.ajax({
-        url: "ajax/forms/ministry_form.php",
-        beforeSend: function () {
-            KTApp.blockPage({
-                overlayColor: "#000000",
-                type: "v2",
-                state: "success",
-                message: "Please wait..."
-            })
+        url: "ajaxscripts/forms/addministry.php",
+        beforeSend: function() {
+            $.blockUI({
+                message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+            });
         },
-        success: function (text) {
-            $('#ministryform_div').html(text);
+        success: function(text) {
+            $('#pageform_div').html(text);
         },
-        error: function (xhr, ajaxOptions, thrownError) {
+        error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + " " + thrownError);
         },
-        complete: function () {
-            KTApp.unblockPage();
+        complete: function() {
+            $.unblockUI();
         },
 
     });
 
 
+
+    //Load table
     $.ajax({
-        url: "ajax/tables/ministry_table.php",
-        beforeSend: function () {
-            KTApp.blockPage({
-                overlayColor: "#000000",
-                type: "v2",
-                state: "success",
-                message: "Please wait..."
-            })
+        url: "ajaxscripts/tables/ministries.php",
+        beforeSend: function() {
+            $.blockUI({
+                message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+            });
         },
-        success: function (text) {
-            $('#ministrytable_div').html(text);
+        success: function(text) {
+            $('#pagetable_div').html(text);
         },
-        error: function (xhr, ajaxOptions, thrownError) {
+        error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + " " + thrownError);
         },
-        complete: function () {
-            KTApp.unblockPage();
+        complete: function() {
+            $.unblockUI();
         },
 
     });
-
 </script>
-

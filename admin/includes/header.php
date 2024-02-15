@@ -28,7 +28,7 @@ if (isset($_SESSION['timeout'])) {
     $session_life = time() - $_SESSION['timeout'];
     if ($session_life > $inactive) {
         session_destroy();
-        header("location:login");
+        header("location:../login");
     }
 }
 $_SESSION['timeout'] = time();
@@ -65,9 +65,9 @@ function getCompNameHeader($text)
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
-    <title>Point of Sale System</title>
+    <title>Church Management System | Main Admin</title>
     <link rel="apple-touch-icon" href="../app-assets/images/ico/apple-icon-120.html">
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo getLogo(); ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="../<?php echo getLogo(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -150,6 +150,10 @@ function getCompNameHeader($text)
         .dt-buttons {
             margin-bottom: 10px;
         }
+
+        #table-data_filter {
+            display: none;
+        }
     </style>
 
 </head>
@@ -203,7 +207,7 @@ function getCompNameHeader($text)
                         <a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a>
                         <a class="dropdown-item" href="changepassword"><i class="me-50" data-feather="key"></i> Change <br />Password</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login"><i class="me-50" data-feather="power"></i> Logout</a>
+                        <a class="dropdown-item" href="../login"><i class="me-50" data-feather="power"></i> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -217,9 +221,9 @@ function getCompNameHeader($text)
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item me-auto"><a class="navbar-brand" href="/">
+                <li class="nav-item me-auto"><a class="navbar-brand" href="/admin/">
                         <span class="brand-logo">
-                            <img src="<?php echo getLogo(); ?>" />
+                            <img src="../<?php echo getLogo(); ?>" style="border-radius:20px" />
                         </span>
                         <h2 class="brand-text" style="font-size:14px"><?php echo getCompNameHeader(getChurchName()); ?></h2>
                     </a></li>
@@ -230,31 +234,35 @@ function getCompNameHeader($text)
         <div class="main-menu-content mt-1">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/index.php" ? "active" : ""); ?> nav-item">
-                    <a class="d-flex align-items-center" href="/">
+                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/index.php" ? "active" : ""); ?> nav-item">
+                    <a class="d-flex align-items-center" href="/admin/">
                         <i data-feather="airplay"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboard</span>
                     </a>
                 </li>
 
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-cart"></i>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="settings"></i>
                         <span class="menu-title text-truncate">Configuration</span></a>
                     <ul class="menu-content">
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/addproduct.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="addproduct"><i data-feather="circle"></i>
-                                <span class="menu-item text-truncate">Departments</span></a>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/documents.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="documents"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Documents</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/viewproducts.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="viewproducts"><i data-feather="circle"></i>
-                                <span class="menu-item text-truncate">Ministries</span></a>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/branches.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="branches"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Branches</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/searchproducts.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="searchproducts"><i data-feather="circle"></i>
-                                <span class="menu-item text-truncate">Cell Groups</span></a>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/branchusers.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="branchusers"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Branch Users</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/pricelists.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="pricelists"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/adminusers.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="adminusers"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Admin Users</span></a>
+                        </li>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/apikey.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="apikey"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">SMS API Key</span></a>
                         </li>
 
@@ -262,7 +270,7 @@ function getCompNameHeader($text)
                 </li>
 
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="dollar-sign"></i>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="users"></i>
                         <span class="menu-title text-truncate" data-i18n="Sales">Membership</span></a>
                     <ul class="menu-content">
 
@@ -293,7 +301,7 @@ function getCompNameHeader($text)
 
 
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user-check"></i>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="calendar"></i>
                         <span class="menu-title text-truncate" data-i18n="Customers">Meetings</span></a>
                     <ul class="menu-content">
 
@@ -320,7 +328,7 @@ function getCompNameHeader($text)
                 </li>
 
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user-plus"></i>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="radio"></i>
                         <span class="menu-title text-truncate" data-i18n="Suppliers">Services</span></a>
                     <ul class="menu-content">
 
@@ -345,7 +353,7 @@ function getCompNameHeader($text)
                 </li>
 
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="pie-chart"></i>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="dollar-sign"></i>
                         <span class="menu-title text-truncate" data-i18n="Customers">Financials</span></a>
                     <ul class="menu-content">
 
@@ -381,7 +389,7 @@ function getCompNameHeader($text)
                     </ul>
                 </li>
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="users"></i>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="pie-chart"></i>
                         <span class="menu-title text-truncate" data-i18n="Users">Accounts</span></a>
                     <ul class="menu-content">
 
@@ -406,13 +414,13 @@ function getCompNameHeader($text)
                 </li>
 
                 <li class="<?php echo ($_SERVER['PHP_SELF'] == "/inventory.php" ? "active" : ""); ?>">
-                    <a class="d-flex align-items-center" href="inventory"><i data-feather="layers"></i>
+                    <a class="d-flex align-items-center" href="inventory"><i data-feather="smile"></i>
                         <span class="menu-item text-truncate" data-i18n="Inventory">Birthdays</span></a>
                 </li>
 
                 <li class="<?php echo ($_SERVER['PHP_SELF'] == "/client_messages.php" ? "active" : ""); ?> nav-item">
                     <a class="d-flex align-items-center" href="client_messages">
-                        <i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Price Rules">SMS</span></a>
+                        <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Price Rules">SMS</span></a>
                 </li>
 
                 <li class="<?php echo ($_SERVER['PHP_SELF'] == "/messages.php" ? "active" : ""); ?> nav-item">
@@ -422,10 +430,10 @@ function getCompNameHeader($text)
 
                 <li class="<?php echo ($_SERVER['PHP_SELF'] == "/storeconfig.php" ? "active" : ""); ?> nav-item">
                     <a class="d-flex align-items-center" href="storeconfig">
-                        <i data-feather="clipboard"></i><span class="menu-title text-truncate" data-i18n="Store Config">Store Config</span></a>
+                        <i data-feather="tool"></i><span class="menu-title text-truncate" data-i18n="Store Config">Store Config</span></a>
                 </li>
 
-                <li class=" nav-item"><a class="d-flex align-items-center" href="login">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="../login">
                         <i data-feather="save"></i><span class="menu-title text-truncate" data-i18n="Log Out">Log out</span></a>
                 </li>
 

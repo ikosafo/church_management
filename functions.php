@@ -121,13 +121,13 @@ function getExpiryDate($expirydate)
 
 
 
-//Get Category Details
-function getCategory($id)
+//Get Branch Details
+function getBranch($id)
 {
     //global $mysqli;
     return '
         <div class="text-center">
-            <a class="editcategorybtn" title="Edit Category"
+            <a class="editbranchbtn" title="Edit branch"
                             i_index=' . $id . '>
                 <span class="icon-wrapper cursor-pointer"> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
@@ -137,7 +137,7 @@ function getCategory($id)
                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                 </span>
             </a>
-            <a class="deletecategorybtn" title="Delete Category"
+            <a class="deletebranchbtn" title="Delete Branch"
                             i_index=' . $id . '>
                 <span class="icon-wrapper cursor-pointer" title="Delete Category"> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 

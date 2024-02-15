@@ -1,74 +1,75 @@
-</div>
-</div>
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
+
+<!-- BEGIN: Footer-->
+<footer class="footer footer-static footer-light">
+    <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">
+            <?php echo date("Y") ?> &copy;
+            <a class="ms-25" href="#" target="_blank"><?php echo getChurchName(); ?></a>
+    </p>
+</footer>
+<button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+<!-- END: Footer-->
 
 
-<!-- begin:: Footer -->
-<div class="kt-footer  kt-footer--extended  kt-grid__item" id="kt_footer"
-     style="background-image: url('newassets/media/bg/bg-2.jpg');">
+<!-- BEGIN: Vendor JS-->
+<script src="../app-assets/vendors/js/vendors.min.js"></script>
+<!-- BEGIN Vendor JS-->
 
-    <div class="kt-footer__bottom">
-        <div class="kt-container ">
-            <div class="kt-footer__wrapper">
-                <div class="kt-footer__logo">
-                    <div class="kt-footer__copyright">
-                        <?php echo date('Y') ?>&nbsp;&copy;&nbsp;
-                        <a href="../../" target="_blank"><?php echo $churcht ?></a>
-                    </div>
-                </div>
-                <div class="kt-footer__menu">
-                    <a href="javascript:;">Developers</a>
-                    <a href="javascript:;">Contact</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end:: Footer -->
-</div>
-</div>
-</div>
+<!-- BEGIN: Page Vendor JS-->
+<script src="../app-assets/vendors/js/charts/apexcharts.min.js"></script>
+<script src="../app-assets/vendors/js/extensions/toastr.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+<script src="../app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+<script src="../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+<script src="../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+<script src="../app-assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
+<script src="../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+<script src="../app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
+<!-- END: Page Vendor JS-->
 
-<!-- end:: Page -->
+<!-- BEGIN: Theme JS-->
+<script src="../app-assets/js/core/app-menu.min.js"></script>
+<script src="../app-assets/js/core/app.min.js"></script>
+<script src="../app-assets/js/scripts/customizer.min.js"></script>
+<!-- END: Theme JS-->
 
-<!-- begin::Scrolltop -->
-<div id="kt_scrolltop" class="kt-scrolltop">
-    <i class="fa fa-arrow-up"></i>
-</div>
-<!-- end::Scrolltop -->
+<!-- BEGIN: Page JS-->
+<script src="../app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
+<!-- END: Page JS-->
+<script src="../app-assets/uploadifive/jquery.uploadifive.js"></script>
+<script src="../app-assets/js/scripts/components/notify.js"></script>
+<script src="../app-assets/js/scripts/components/jquery.blockUI.js"></script>
 
+<script src="../app-assets/js/scripts/tables/table-datatables-basic.min.js"></script>
+<script src="../app-assets/js/scripts/components/components-tooltips.min.js"></script>
+<script src="../app-assets/js/scripts/jquery-confirm.min.js"></script>
+<script src="../app-assets/js/scripts/forms/form-number-input.min.js"></script>
 
-<!--begin::Global Theme Bundle(used by all pages) -->
-<script src="../assets/plugins/global/plugins.bundle.js"
-        type="text/javascript"></script>
-<script src="../assets/js/scripts.bundle.js"
-        type="text/javascript"></script>
-<!--end::Global Theme Bundle -->
-
-<!--begin::Page Vendors(used by this page) -->
-<script
-    src="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"
-    type="text/javascript"></script>
-<script src="../assets/plugins/custom/gmaps/gmaps.js"
-        type="text/javascript"></script>
-<!--end::Page Vendors -->
-
-<!--begin::Page Scripts(used by this page) -->
-<script src="../assets/js/pages/dashboard.js"
-        type="text/javascript"></script>
-
-<script src="../assets/js/pages/custom/login/login-general.js" type="text/javascript"></script>
-<script src="../assets/js/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
-<script src="../assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-<script src="../assets/js/pages/crud/datatables/extensions/buttons.js" type="text/javascript"></script>
-<script src="../assets/js/pages/notify.js" type="text/javascript"></script>
-<script src="../assets/js/custom.js" type="text/javascript"></script>
-<script src="../assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
-<script src="../assets/jquery-confirm/js/jquery-confirm.js" type="text/javascript"></script>
-<script src="../assets/uploadify/jquery.uploadifive.js" type="text/javascript"></script>
-<script src="../assets/js/countrySelect.js" type="text/javascript"></script>
+<!-- <script src="../app-assets/js/scripts/forms/form-wizard.min.js"></script> -->
 
 
-<!--end::Page Scripts -->
+<script>
+    $(window).on('load', function() {
+        if (feather) {
+            feather.replace({
+                width: 14,
+                height: 14
+            });
+        }
+    })
+</script>
 </body>
-<!-- end::Body -->
+<!-- END: Body-->
+
 </html>
