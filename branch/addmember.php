@@ -12,7 +12,7 @@
             <section class="vertical-wizard">
                 <div class="bs-stepper vertical vertical-wizard-example">
                     <div class="bs-stepper-header">
-                        <div class="step active" data-target="#productinfo" role="tab" id="product-details-trigger">
+                        <div class="step active" data-target="#personalinfo" role="tab" id="product-details-trigger">
                             <button type="button" class="step-trigger" aria-selected="true">
                                 <span class="bs-stepper-box">1</span>
                                 <span class="bs-stepper-label">
@@ -21,7 +21,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="step" data-target="#productsummary" role="tab" id="productsummary-trigger">
+                        <div class="step" data-target="#familyinfo" role="tab" id="familyinfo-trigger">
                             <button type="button" class="step-trigger" disabled="disabled">
                                 <span class="bs-stepper-box">2</span>
                                 <span class="bs-stepper-label">

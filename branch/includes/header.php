@@ -253,6 +253,10 @@ function getCompNameHeader($text)
                             <a class="d-flex align-items-center" href="departments"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">Departments</span></a>
                         </li>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/society.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="society"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Society</span></a>
+                        </li>
                         <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/ministries.php" ? "active" : ""); ?>">
                             <a class="d-flex align-items-center" href="ministries"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">Ministries</span></a>

@@ -1,31 +1,10 @@
 <?php
 include('../../../config.php');
 $random = rand(1, 10) . date("Y-m-d");
+$branch = $_SESSION['branch'];
 ?>
 
 <style>
-    datalist {
-        position: absolute;
-        max-height: 20em;
-        border: 0 none;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    datalist option {
-        font-size: 0.8em;
-        padding: 0.3em 1em;
-        background-color: #ccc;
-        cursor: pointer;
-    }
-
-    datalist option:hover,
-    datalist option:focus {
-        color: #fff;
-        background-color: #036;
-        outline: 0 none;
-    }
-
     .requiredtext {
         font-size: 11px;
         margin-bottom: 10px;
@@ -44,13 +23,17 @@ $random = rand(1, 10) . date("Y-m-d");
 <form autocomplete="off">
 
     <div class="row">
-        <div class="mb-1 col-md-6">
+        <div class="mb-1 col-md-4">
             <label class="form-label" for="fullname">Full Name <span class="required"> * </span></label>
             <input type="text" id="fullname" class="form-control" placeholder="Full Name" />
         </div>
-        <div class="mb-1 col-md-6">
+        <div class="mb-1 col-md-4">
             <label class="form-label" for="maidenname">Maiden Name</label>
             <input type="text" id="maidenname" class="form-control" placeholder="Maiden Name" />
+        </div>
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="telephone">Telephone</label>
+            <input type="number" id="telephone" class="form-control" placeholder="Telephone" />
         </div>
 
     </div>
@@ -97,11 +80,11 @@ $random = rand(1, 10) . date("Y-m-d");
     <div class="row">
 
         <div class="mb-1 col-md-4">
-            <label class="form-label" for="hometown">Hometown</label>
+            <label class="form-label" for="hometown">Hometown <span class="required"> * </span></label>
             <input type="text" id="hometown" class="form-control" placeholder="Hometown" />
         </div>
         <div class="mb-1 col-md-4">
-            <label class="form-label" for="location">Nationality</label>
+            <label class="form-label" for="location">Nationality <span class="required"> * </span></label>
             <select data-placeholder="Select Nationality" id="nationality" style="width: 100%" class="select2 form-select">
                 <option></option>
                 <option <?php if (@$re_profile['nationality'] == "Afghanistan") echo "Selected" ?>>Afghanistan</option>
@@ -365,28 +348,46 @@ $random = rand(1, 10) . date("Y-m-d");
         </div>
     </div>
 
+    <div class="row">
 
-    <div class="mb-1 col-md-4">
-        <label class="form-label" for="stockthreshold">Low stock threshold</label>
-        <input type="text" id="stockthreshold" onkeypress="return isNumber(event)" class="form-control" placeholder="Low stock threshold" />
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="baptismdate">Baptism Date</label>
+            <input type="text" id="baptismdate" class="form-control" placeholder="Baptism Date" />
+        </div>
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="confirmationdate">Confirmation Date/Place</label>
+            <input type="text" id="confirmationdate" class="form-control" placeholder="Confirmation Date/Place" />
+        </div>
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="emailaddress">Email Address</label>
+            <input type="text" id="emailaddress" class="form-control" placeholder="Email Address" />
+        </div>
     </div>
 
-    <div class="mb-1 col-md-4">
-        <label class="form-label" for="expirydate">Expiry Date</label>
-        <input type="text" id="expirydate" class="form-control" placeholder="Expiry Date" />
+    <div class="row">
+
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="placeofwork">Place of Work</label>
+            <input type="text" id="placeofwork" class="form-control" placeholder="Place of Work" />
+        </div>
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="society">Society</label>
+            <select class="form-select" id="society">
+                <option></option>
+                <?php
+                $getsociety = $mysqli->query("select * from ministry where branch = '$branch'");
+                while ($ressociety = $getsociety->fetch_assoc()) { ?>
+                    <option value="<?php echo $ressociety['id'] ?>"><?php echo $ressociety['ministry_name'] ?></option>
+                <?php }
+                ?>
+            </select>
+        </div>
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="occupation">Occupation</label>
+            <input type="text" id="occupation" class="form-control" placeholder="Occupation" />
+        </div>
     </div>
-    <div class="mb-1 col-md-4">
-        <label class="form-label" for="variations">Variations</label>
-        <input type="text" id="variations" class="form-control" placeholder="Specify Variations" />
-    </div>
-    <div class="mb-1 col-md-4">
-        <label class="form-label" for="sellingprice">Selling Price </label>
-        <input type="text" id="sellingprice" oninput="updateReadOnlyBox()" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Selling Price" />
-    </div>
-    <div class="mb-1 col-md-4">
-        <label class="form-label" for="costprice">Cost Price</label>
-        <input type="text" id="costprice" readonly onkeypress="return isNumberKey(event)" class="form-control" placeholder="Cost Price" />
-    </div>
+
 
     <div class="d-flex justify-content-between mt-2">
         <button class="btn btn-outline-secondary btn-prev waves-effect" disabled="">
@@ -396,7 +397,7 @@ $random = rand(1, 10) . date("Y-m-d");
             </svg>
             <span class="align-middle d-sm-inline-block d-none">Previous</span>
         </button>
-        <button id="productinfobtn" class="btn btn-primary waves-effect waves-float waves-light">
+        <button id="personalinfobtn" class="btn btn-primary waves-effect waves-float waves-light">
             <span class="align-middle d-sm-inline-block d-none">Next</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -410,9 +411,15 @@ $random = rand(1, 10) . date("Y-m-d");
 
 <script>
     $("#dob").flatpickr();
+    $("#baptismdate").flatpickr();
 
     $("#nationality").select2({
         placeholder: "Select Country",
+        allowClear: true
+    });
+
+    $("#society").select2({
+        placeholder: "Select Society",
         allowClear: true
     });
 
@@ -447,79 +454,128 @@ $random = rand(1, 10) . date("Y-m-d");
         document.getElementById("costprice").value = isNaN(costPrice) ? "" : costPrice.toFixed(2);;
     }
 
-    //PRODUCT INFORMATION
-    $("#productinfobtn").on("click", (function() {
+    //PERSONAL INFORMATION
+    $("#personalinfobtn").on("click", (function() {
 
-        var productname = $("#productname").val();
-        var quantity = $("#quantity").val();
-        var stockthreshold = $("#stockthreshold").val();
-        var supplier = $("#supplier").val();
-        var expirydate = $("#expirydate").val();
-        var variations = $("#variations").val();
-        var costprice = $("#costprice").val();
-        var sellingprice = $("#sellingprice").val();
-        var saletype = $('input[name=saletype]:checked').val();
+        var fullname = $("#fullname").val();
+        var maidenname = $("#maidenname").val();
+        var telephone = $("#telephone").val();
+        var dob = $("#dob").val();
+        var age = $("#age").val();
+        var birthplace = $("#birthplace").val();
+        var gender = $("input[name='gender']:checked").val();
+        var gpsaddress = $("#gpsaddress").val();
+        var location = $("#location").val();
+        var hometown = $("#hometown").val();
+        var nationality = $("#nationality").val();
+        var communicant = $("input[name='communicant']:checked").val();
+        var baptismdate = $("#baptismdate").val();
+        var confirmationdate = $("#confirmationdate").val();
+        var emailaddress = $("#emailaddress").val();
+        var placeofwork = $("#placeofwork").val();
+        var society = $("#society").val();
+        var occupation = $("#occupation").val();
         var random = '<?php echo $random; ?>';
 
         var error = '';
 
-        if (productname == "") {
-            error += 'Please enter product name \n';
-            $("#productname").focus();
+        // Validation for Full Name
+        if ($("#fullname").val().trim() === "") {
+            error += "Please enter full name\n";
+            $("#fullname").focus();
         }
-        if (quantity == "") {
-            error += 'Please enter quantity \n';
-            $("#quantity").focus();
+
+        // Validation for Date of Birth
+        if ($("#dob").val().trim() === "") {
+            error += "Please enter date of birth\n";
+            $("#dob").focus();
         }
-        if (stockthreshold == "") {
-            error += 'Please enter threshold \n';
-            $("#stockthreshold").focus();
+
+        // Validation for Place of Birth
+        if ($("#birthplace").val().trim() === "") {
+            error += "Please enter place of birth\n";
+            $("#birthplace").focus();
         }
-        if (supplier == "") {
-            error += 'Please enter or select supplier \n';
-            $("#supplier").focus();
+
+        // Validation for Hometown
+        if ($("#hometown").val().trim() === "") {
+            error += "Please enter hometown\n";
+            $("#hometown").focus();
         }
-        if (variations == "") {
-            error += 'Please specify variations \n';
-            $("#variations").focus();
+
+        // Validation for Location
+        if ($("#location").val().trim() === "") {
+            error += "Please enter location\n";
+            $("#location").focus();
         }
-        if (sellingprice == "") {
-            error += 'Please enter selling price \n';
-            $("#sellingprice").focus();
+
+        // Validation for Gender
+        if (typeof $("input[name='gender']:checked").val() === "undefined") {
+            error += "Please select gender\n";
         }
+
+        // Validation for Nationality
+        if ($("#nationality").val().trim() === "") {
+            error += "Please select nationality\n";
+            $("#nationality").focus();
+        }
+
+        // Validation for Communicant
+        if (typeof $("input[name='communicant']:checked").val() === "undefined") {
+            error += "Please select communicant status\n";
+        }
+
+        // Validation for Email Address
+        if (emailaddress !== "") {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailaddress)) {
+                error += "Please enter a valid email address\n";
+                $("#emailaddress").focus();
+            }
+        }
+
 
         if (error == "") {
             $.ajax({
                 type: "POST",
-                url: "ajaxscripts/queries/save/product.php",
+                url: "ajaxscripts/queries/save/member.php",
                 beforeSend: function() {
                     $.blockUI({
                         message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
                     });
                 },
                 data: {
-                    productname,
-                    quantity,
-                    stockthreshold,
-                    supplier,
-                    expirydate,
-                    variations,
-                    costprice,
-                    sellingprice,
-                    saletype,
+                    fullname,
+                    maidenname,
+                    telephone,
+                    dob,
+                    age,
+                    birthplace,
+                    gender,
+                    gpsaddress,
+                    location,
+                    hometown,
+                    nationality,
+                    communicant,
+                    baptismdate,
+                    confirmationdate,
+                    emailaddress,
+                    placeofwork,
+                    society,
+                    occupation,
                     random
                 },
                 success: function(text) {
                     //alert(text);
 
                     if (text == 1) {
-                        $.notify("Product Saved", "success", {
+                        $.notify("Personal Information Saved", "success", {
                             position: "top center"
                         });
                         $.ajax({
-                            url: "ajaxscripts/forms/productsummary.php",
+                            url: "ajaxscripts/forms/familyinfo.php",
                             success: function(text) {
-                                $('#productsummarydiv').html(text);
+                                $('#familyinfodiv').html(text);
                             },
                             error: function(xhr, ajaxOptions, thrownError) {
                                 alert(xhr.status + " " + thrownError);
@@ -528,7 +584,7 @@ $random = rand(1, 10) . date("Y-m-d");
                         var stepper = new Stepper(document.querySelector('.bs-stepper'))
                         stepper.to(2);
                     } else {
-                        $.notify("Product alredy exists", "error", {
+                        $.notify("Member already exists", "error", {
                             position: "top center"
                         });
                     }
