@@ -14,14 +14,14 @@
                     <div class="col-md-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="error_loc">Ministries</h4>
+                                <h4 class="card-title" id="error_loc">Church Workers</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 col-12">
+                                    <div class="col-md-5 col-5">
                                         <div id="pageform_div"></div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 col-12">
+                                    <div class="col-md-7 col-7">
                                         <div id="pagetable_div"></div>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
 <script>
     //Load form
     $.ajax({
-        url: "ajaxscripts/forms/addministry.php",
+        url: "ajaxscripts/forms/addchurchworker.php",
         beforeSend: function() {
             $.blockUI({
                 message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
@@ -71,7 +71,7 @@
 
     //Load table
     $.ajax({
-        url: "ajaxscripts/tables/ministries.php",
+        url: "ajaxscripts/tables/churchworkers.php",
         beforeSend: function() {
             $.blockUI({
                 message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'

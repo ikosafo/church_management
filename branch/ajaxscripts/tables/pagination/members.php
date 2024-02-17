@@ -2,6 +2,7 @@
 ## Database configuration
 include('../../../../config.php');
 include('../../../../functions.php');
+$branch = $_SESSION['branch'];
 
 ## Read value
 $draw = $_POST['draw'];
@@ -38,17 +39,17 @@ if ($searchValue != '') {
 }
 
 ## Total number of records without filtering
-$sel = mysqli_query($mysqli, "select count(*) as allcount from members");
+$sel = mysqli_query($mysqli, "select count(*) as allcount from members WHERE branch = '$branch'");
 $records = mysqli_fetch_assoc($sel);
 $totalRecords = $records['allcount'];
 
 ## Total number of record with filtering
-$sel = mysqli_query($mysqli, "select count(*) as allcount from members WHERE  1 " . $searchQuery);
+$sel = mysqli_query($mysqli, "select count(*) as allcount from members WHERE branch = '$branch' AND  1 " . $searchQuery);
 $records = mysqli_fetch_assoc($sel);
 $totalRecordwithFilter = $records['allcount'];
 
 ## Fetch records
-$empQuery = "select * from members WHERE 1 " . $searchQuery . " order by fullname limit " . $row . "," . $rowperpage;
+$empQuery = "select * from members WHERE branch = '$branch' AND 1 " . $searchQuery . " order by fullname limit " . $row . "," . $rowperpage;
 $empRecords = mysqli_query($mysqli, $empQuery);
 $data = array();
 

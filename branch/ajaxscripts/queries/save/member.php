@@ -30,8 +30,8 @@ $checkExist = $mysqli->query("SELECT * FROM members WHERE emailaddress = '$email
 if (mysqli_num_rows($checkExist) > 0) {
     echo 2;
 } else {
-    $mysqli->query("INSERT INTO members (fullname, maidenname, telephone, dob, age, birthplace, gender, gpsaddress, `location`, hometown, nationality, communicant, baptismdate, confirmationdate, emailaddress, placeofwork, society, occupation, random) 
-    VALUES ('$fullname', '$maidenname', '$telephone', '$dob', '$age', '$birthplace', '$gender', '$gpsaddress', '$location', '$hometown', '$nationality', '$communicant', '$baptismdate', '$confirmationdate', '$emailaddress', '$placeofwork', '$society', '$occupation', '$random')");
+    $mysqli->query("INSERT INTO members (fullname, maidenname, telephone, dob, age, birthplace, gender, gpsaddress, `location`, hometown, nationality, communicant, baptismdate, confirmationdate, emailaddress, placeofwork, society, occupation, random, branch) 
+    VALUES ('$fullname', '$maidenname', '$telephone', '$dob', '$age', '$birthplace', '$gender', '$gpsaddress', '$location', '$hometown', '$nationality', '$communicant', '$baptismdate', '$confirmationdate', '$emailaddress', '$placeofwork', '$society', '$occupation', '$random','$branch')");
     echo 1;
 }
 

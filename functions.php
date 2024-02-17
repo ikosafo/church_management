@@ -151,37 +151,6 @@ function getBranch($id)
 }
 
 
-
-//Get Variation Details
-function getVariation($id)
-{
-    //global $mysqli;
-    return '
-        <div class="text-center">
-            <a class="editvariationbtn" title="Edit Attribute" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-edit">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                </span>
-            </a>
-            <a class="deletevariationbtn" title="Delete Attribute" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                </span>
-            </a>
-     
-        </div>';
-}
-
-
-
 //Get User Details
 function getUser($id)
 {
@@ -210,166 +179,6 @@ function getUser($id)
         </div>';
 }
 
-
-
-//Get Expense Category Details
-function getExpCategory($id)
-{
-    //global $mysqli;
-    return '
-        <div class="text-center">
-            <a class="editexpcategorybtn" title="Edit Category"
-                            i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-edit">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                </span>
-            </a>
-            <a class="deleteexpcategorybtn" title="Delete Category"
-                            i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer" title="Delete Category"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                </span>
-            </a>
-               
-            
-            </div>';
-}
-
-
-
-//Get Customer Details
-function getCustomer($id)
-{
-    //global $mysqli;
-    return '
-        <div class="text-center">
-            <a class="viewcustomerbtn" title="View Customer Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-eye">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle></svg>
-                </span>
-            </a>
-            <a class="editcustomerbtn" title="Edit User Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-edit">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                </span>
-            </a>
-            <a class="deletecustomerbtn" title="Delete User Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                </span>
-            </a>
-     
-        </div>';
-}
-
-
-
-//Get Supplier Details
-function getSupplier($id)
-{
-    //global $mysqli;
-    return '
-        <div class="text-center">
-            <a class="viewsupplierbtn" title="View Supplier Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-eye">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle></svg>
-                </span>
-            </a>
-            <a class="editsupplierbtn" title="Edit User Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-edit">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                </span>
-            </a>
-            <a class="deletesupplierbtn" title="Delete User Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                </span>
-            </a>
-     
-        </div>';
-}
-
-
-
-
-//Get Sales Details
-function getSales($id)
-{
-    //global $mysqli;
-    return '
-        <div class="text-center">
-            <a class="viewsalebtn" title="View Sale Details" i_index=' . $id . '>
-                <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                    stroke-linejoin="round" class="feather feather-eye">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle></svg>
-                </span>
-            </a>
-            <a class="printsalebtn" title="Print Sale" i_index=' . $id . '>
-            <span class="icon-wrapper cursor-pointer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                    class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline>
-                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                    <rect x="6" y="14" width="12" height="8"></rect></svg>
-            </span>
-        </a>
-           
-     
-        </div>';
-}
-
-function getTempSales($prodid)
-{
-    global $mysqli;
-    $getqty = $mysqli->query("select * from products where prodid = '$prodid'");
-    $resqty = $getqty->fetch_assoc();
-    $quantity = $resqty['quantity'];
-    if ($quantity < 1) {
-        return "No item left";
-    } else {
-        return '<button class="btn btn-primary btn-sm btn-icon gettempsales" style="padding:0.4rem"
-     i_index=' . $prodid . '>
-                <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" 
-                stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" 
-                class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>
-     </button>';
-    }
-}
 
 
 //Get Member Details
@@ -408,6 +217,70 @@ function getMemberDetails($id)
      
         </div>';
 }
+
+
+//Get Convert Details
+function getConvertDetails($id)
+{
+    //global $mysqli;
+    return '
+        <div class="text-center">
+           
+            <a class="deleteconvertbtn" title="Delete Convert Details" i_index=' . $id . '>
+                <span class="icon-wrapper cursor-pointer"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                </span>
+            </a>
+     
+        </div>';
+}
+
+
+//Get Visitor Details
+function getVisitorDetails($id)
+{
+    //global $mysqli;
+    return '
+        <div class="text-center">
+           
+            <a class="deletevisitorbtn" title="Delete Visitor Details" i_index=' . $id . '>
+                <span class="icon-wrapper cursor-pointer"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                </span>
+            </a>
+     
+        </div>';
+}
+
+
+//Get Worker Details
+function getBranchWorkerDetails($id)
+{
+    //global $mysqli;
+    return '
+        <div class="text-center">
+           
+            <a class="deletevisitorbtn" title="Delete Worker Details" i_index=' . $id . '>
+                <span class="icon-wrapper cursor-pointer"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                </span>
+            </a>
+     
+        </div>';
+}
+
 
 
 
@@ -469,6 +342,25 @@ function getGiftcard($id)
      
         </div>';
 }
+
+
+function getFullName($id)
+{
+    global $mysqli;
+    $getname = $mysqli->query("select * from members where id = '$id'");
+    $resname = $getname->fetch_assoc();
+    return $resname['fullname'];
+}
+
+
+function getTelephone($id)
+{
+    global $mysqli;
+    $gettel = $mysqli->query("select * from members where id = '$id'");
+    $restel = $gettel->fetch_assoc();
+    return $restel['telephone'];
+}
+
 
 
 function getProdName($id)

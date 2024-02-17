@@ -291,12 +291,12 @@ function getCompNameHeader($text)
                             <a class="d-flex align-items-center" href="newconverts"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Preview">New Converts</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/viewsales.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="viewsales"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/visitors.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="visitors"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Preview">Visitors</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/viewsales.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="viewsales"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/churchworkers.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="churchworkers"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Preview">Church Workers</span></a>
                         </li>
 
