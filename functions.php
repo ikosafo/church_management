@@ -291,6 +291,16 @@ function getfinoffering($id)
 }
 
 
+function getfintithe($id)
+{
+    return '<button class="btn btn-primary paytithe_btn"
+                    i_index=' . $id . '>
+                        Pay Tithe
+    </button>';
+}
+
+
+
 //Get Meeting Config
 function getMeetingConfig($id)
 {

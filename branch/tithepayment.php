@@ -3,7 +3,7 @@ include('../config.php');
 
 $memberid = $_POST['id_index'];
 $branch = $_POST['branch'];
-$paymenttype = 'Offering';
+$paymenttype = 'Tithe';
 //$user_id = $_SESSION['user_id'];
 
 $app = $mysqli->query("select * from `members` where id = '$memberid'");
@@ -24,18 +24,26 @@ $result = $app->fetch_assoc();
 <div class="form-group row">
     <div class="col-md-5">
         <p class="card-text font-small mb-2">
-            Payment of Offering for <?php echo $result['fullname']; ?>
+            Payment of Tithe for <?php echo $result['fullname']; ?>
         </p>
         <hr />
-        <form class="form form-horizontal" id="offeringform">
+        <form class="form form-horizontal" id="titheform">
             <div class="row">
                 <div class="mb-1 col-md-12">
-                    <label for="purpose" class="form-label">Purpose</label>
-                    <textarea class="form-control" id="purpose" rows="3" placeholder="Enter Purpose"></textarea>
+                    <label for="purpose" class="form-label">Payment For</label>
+                    <input type="text" class="form-control" id="paymentfor" placeholder="Select Period">
                 </div>
                 <div class="mb-1 col-md-12">
                     <label for="amount" class="form-label">Amount</label>
                     <input type="text" class="form-control" id="amount" placeholder="Enter amount" onkeypress="return isNumberKey(event)">
+                </div>
+                <div class="mb-1 col-md-12">
+                    <label for="paymentmode" class="form-label">Payment Mode</label>
+                    <select class="form-control bootstrap-select" id="paymentmode">
+                        <option value="Cash">Cash</option>
+                        <option value="Cheque">Cheque</option>
+                        <option value="Mobile Money">Mobile Money</option>
+                    </select>
                 </div>
                 <div class="mb-1 col-md-12">
                     <label for="datepaid" class="form-label">Date Paid</label>
@@ -75,6 +83,16 @@ $result = $app->fetch_assoc();
 <script>
     $("#datepaid").flatpickr();
 
+    $("#paymentfor").flatpickr({
+        dateFormat: "Y-m"
+    });
+
+    $("#paymentmode").select2({
+        placeholder: "Select Payment Mode",
+        allowClear: true
+    });
+
+
     $.ajax({
         type: "post",
         url: "ajaxscripts/tables/payments.php",
@@ -101,14 +119,15 @@ $result = $app->fetch_assoc();
 
 
     $("#savepaymentbtn").click(function() {
-        var purpose = $("#purpose").val();
+        var paymentfor = $("#paymentfor").val();
         var amount = $("#amount").val();
         var datepaid = $("#datepaid").val();
+        var payment_mode = $("#paymentmode").val();
 
         var error = '';
-        if (purpose == "") {
-            error += 'Please enter purpose of offering \n';
-            $("#purpose").focus();
+        if (paymentfor == "") {
+            error += 'Please select period for payment \n';
+            $("#paymentfor").focus();
         }
         if (amount == "") {
             error += 'Please enter amount \n';
@@ -118,10 +137,11 @@ $result = $app->fetch_assoc();
             error += 'Please select date paid \n';
             $("#datepaid").focus();
         }
+
         if (error == "") {
             $.ajax({
                 type: "POST",
-                url: "ajaxscripts/queries/save/payoffering.php",
+                url: "ajaxscripts/queries/save/paytithe.php",
                 beforeSend: function() {
                     $.blockUI({
                         message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
@@ -131,7 +151,8 @@ $result = $app->fetch_assoc();
                     memberid: '<?php echo $memberid ?>',
                     branch: '<?php echo $branch ?>',
                     amount: amount,
-                    purpose: purpose,
+                    paymentfor: paymentfor,
+                    payment_mode: payment_mode,
                     datepaid: datepaid
                 },
                 success: function(text) {
@@ -141,7 +162,7 @@ $result = $app->fetch_assoc();
                     });
 
                     $("#table-data").DataTable().ajax.reload(null, false);
-                    document.getElementById("offeringform").reset();
+                    document.getElementById("titheform").reset();
 
                     $.ajax({
                         type: "post",
