@@ -300,6 +300,15 @@ function getfintithe($id)
 }
 
 
+function getfinwelfare($id)
+{
+    return '<button class="btn btn-primary paywelfare_btn"
+                    i_index=' . $id . '>
+                        Pay Welfare
+    </button>';
+}
+
+
 
 //Get Meeting Config
 function getMeetingConfig($id)
