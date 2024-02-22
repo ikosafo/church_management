@@ -35,7 +35,6 @@
             $("#cellgroupname").focus();
         }
 
-
         if (error == "") {
             $.ajax({
                 type: "POST",
