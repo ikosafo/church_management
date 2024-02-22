@@ -102,7 +102,7 @@ if ($financialtype == 'Offering') {
             "action" => getfincontributions($row['id'])
         );
     }
-} else if ($financialtype == 'Ministry Partners') {
+} else if ($financialtype == 'Partners') {
     while ($row = mysqli_fetch_assoc($empRecords)) {
         $data[] = array(
             "fullname" => $row['fullname'],

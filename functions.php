@@ -308,6 +308,31 @@ function getfinwelfare($id)
     </button>';
 }
 
+function getfinff($id)
+{
+    return '<button class="btn btn-primary payfirstfruit_btn"
+                    i_index=' . $id . '>
+                        Pay First Fruit
+    </button>';
+}
+
+
+function getfincontributions($id)
+{
+    return '<button class="btn btn-primary paycontributions_btn"
+                    i_index=' . $id . '>
+                        Pay Contributions
+    </button>';
+}
+
+function getfinmpartner($id)
+{
+    return '<button class="btn btn-primary paypartners_btn"
+                    i_index=' . $id . '>
+                        Pay Dues
+    </button>';
+}
+
 
 
 //Get Meeting Config
