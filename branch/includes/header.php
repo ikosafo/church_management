@@ -397,17 +397,17 @@ function getCompNameHeader($text)
                         <span class="menu-title text-truncate" data-i18n="Users">Accounts</span></a>
                     <ul class="menu-content">
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/adduser.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="adduser"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/accountreceivals.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="accountreceivals"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="AddU">Receivals</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/viewusers.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="viewusers"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/accountpayments.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="accountpayments"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="ViewU">Payments</span></a>
                         </li>
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/userpermissions.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="userpermissions"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "//branch/accountsearch.php.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="accountsearch"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Permissions">Search</span></a>
                         </li>
 
