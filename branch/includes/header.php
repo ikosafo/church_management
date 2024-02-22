@@ -245,10 +245,19 @@ function getCompNameHeader($text)
                         <span class="menu-title text-truncate">Configuration</span></a>
                     <ul class="menu-content">
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/documents.php" ? "active" : ""); ?>">
+                        <!--  <li class="<?php echo ($_SERVER['PHP_SELF'] == "/admin/documents.php" ? "active" : ""); ?>">
                             <a class="d-flex align-items-center" href="documents"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">Documents</span></a>
+                        </li> 
+                       
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/ministries.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="ministries"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Ministries</span></a>
                         </li>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/cellgroups.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="cellgroups"><i data-feather="circle"></i>
+                                <span class="menu-item text-truncate">Cell groups</span></a>
+                        </li>-->
                         <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/departments.php" ? "active" : ""); ?>">
                             <a class="d-flex align-items-center" href="departments"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">Departments</span></a>
@@ -257,14 +266,8 @@ function getCompNameHeader($text)
                             <a class="d-flex align-items-center" href="society"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">Society</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/ministries.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="ministries"><i data-feather="circle"></i>
-                                <span class="menu-item text-truncate">Ministries</span></a>
-                        </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/cellgroups.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="cellgroups"><i data-feather="circle"></i>
-                                <span class="menu-item text-truncate">Cell groups</span></a>
-                        </li>
+
+
                         <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/apikey.php" ? "active" : ""); ?>">
                             <a class="d-flex align-items-center" href="apikey"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate">SMS API Key</span></a>

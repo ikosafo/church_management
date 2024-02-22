@@ -36,7 +36,7 @@ $getdata = $mysqli->query("select * from `department` where `branch` = '$branch'
                                 <td><?php echo $fetch['department_name']; ?></td>
                                 <td>
                                     <div class="text-center">
-                                        <a class="editbranchbtn" title="Edit branch" i_index=' . $id . '>
+                                        <a class="editdeptbtn" title="Edit Department" i_index=<?php echo $fetch['id']; ?>>
                                             <span class="icon-wrapper cursor-pointer">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
                                                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -44,7 +44,7 @@ $getdata = $mysqli->query("select * from `department` where `branch` = '$branch'
                                                 </svg>
                                             </span>
                                         </a>
-                                        <a class="deletebranchuserbtn" title="Delete Branch" i_index=' . $id . '>
+                                        <a class="deletedeptbtn" title="Delete Department" i_index=<?php echo $fetch['id']; ?>>
                                             <span class="icon-wrapper cursor-pointer" title="Delete Category">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
                                                     <polyline points="3 6 5 6 21 6"></polyline>
@@ -81,5 +81,87 @@ $getdata = $mysqli->query("select * from `department` where `branch` = '$branch'
     });
     $('#searchtxt').keyup(function() {
         oTable.search($(this).val()).draw();
+    });
+
+
+    $(document).off('click', '.editdeptbtn').on('click', '.editdeptbtn', function() {
+        var theindex = $(this).attr('i_index');
+        //alert(theindex)
+        $.ajax({
+            type: "POST",
+            url: "ajaxscripts/forms/editdepartment.php",
+            data: {
+                i_index: theindex
+            },
+            dataType: "html",
+            success: function(text) {
+                $('#pageform_div').html(text);
+            },
+            complete: function() {},
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + " " + thrownError);
+            }
+        });
+    });
+
+
+    $(document).off('click', '.deletedeptbtn').on('click', '.deletedeptbtn', function() {
+        var theindex = $(this).attr('i_index');
+        //alert(theindex)
+        $.confirm({
+            title: 'Delete Department!',
+            content: 'Are you sure to continue?',
+            buttons: {
+                no: {
+                    text: 'No',
+                    keys: ['enter', 'shift'],
+                    backdrop: 'static',
+                    keyboard: false,
+                    action: function() {
+                        $.alert('Data is safe');
+                    }
+                },
+                yes: {
+                    text: 'Yes, Delete it!',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        $.ajax({
+                            type: "POST",
+                            url: "ajaxscripts/queries/delete/department.php",
+                            data: {
+                                i_index: theindex
+                            },
+                            dataType: "html",
+                            success: function(text) {
+                                //alert(text);
+                                $.ajax({
+                                    url: "ajaxscripts/tables/departments.php",
+                                    beforeSend: function() {
+                                        $.blockUI({
+                                            message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                                        });
+                                    },
+                                    success: function(text) {
+                                        $('#pagetable_div').html(text);
+                                    },
+                                    error: function(xhr, ajaxOptions, thrownError) {
+                                        alert(xhr.status + " " + thrownError);
+                                    },
+                                    complete: function() {
+                                        $.unblockUI();
+                                    },
+
+                                });
+                            },
+
+                            complete: function() {},
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(xhr.status + " " + thrownError);
+                            }
+                        });
+                    }
+                }
+            }
+        });
     });
 </script>
