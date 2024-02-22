@@ -7,7 +7,7 @@ $resdept = $getdept->fetch_assoc();
 ?>
 
 <p class="card-text font-small mb-2">
-    Edit branch
+    Edit Department
 </p>
 <hr />
 <form class="form form-horizontal">

@@ -14,7 +14,7 @@
                     <div class="col-md-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="error_loc">Branches</h4>
+                                <h4 class="card-title" id="error_loc">Departments</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">

@@ -1,5 +1,5 @@
 <p class="card-text font-small mb-2">
-    Add branch
+    Add Department
 </p>
 <hr />
 <form class="form form-horizontal">
