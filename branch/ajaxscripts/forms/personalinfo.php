@@ -365,7 +365,10 @@ $branch = $_SESSION['branch'];
     </div>
 
     <div class="row">
-
+        <div class="mb-1 col-md-4">
+            <label class="form-label" for="occupation">Occupation</label>
+            <input type="text" id="occupation" class="form-control" placeholder="Occupation" />
+        </div>
         <div class="mb-1 col-md-4">
             <label class="form-label" for="placeofwork">Place of Work</label>
             <input type="text" id="placeofwork" class="form-control" placeholder="Place of Work" />
@@ -382,10 +385,7 @@ $branch = $_SESSION['branch'];
                 ?>
             </select>
         </div>
-        <div class="mb-1 col-md-4">
-            <label class="form-label" for="occupation">Occupation</label>
-            <input type="text" id="occupation" class="form-control" placeholder="Occupation" />
-        </div>
+
     </div>
 
 

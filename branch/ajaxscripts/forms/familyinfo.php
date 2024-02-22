@@ -5,21 +5,12 @@ $branch = $_SESSION['branch'];
 ?>
 
 <style>
-    .requiredtext {
-        font-size: 11px;
-        margin-bottom: 10px;
-    }
-
-    .required {
-        color: red
-    }
-
     body {
         overflow-x: hidden !important;
     }
 </style>
 
-<label class="requiredtext">Field marked <span class="required"> * </span> are required</label>
+
 <form autocomplete="off">
 
     <div class="row">
@@ -57,7 +48,7 @@ $branch = $_SESSION['branch'];
 
     <div class="row">
         <div class="mb-1 col-md-6">
-            <label class="form-label" for="childrennumber">Number of Children <span class="required"> * </span></label>
+            <label class="form-label" for="childrennumber">Number of Children</label>
             <input type="number" id="childrennumber" class="form-control" placeholder="Number of Children" />
         </div>
     </div>

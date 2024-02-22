@@ -36,7 +36,7 @@
                         <div id="personalinfo" class="content active dstepper-block" role="tabpanel" aria-labelledby="personal-details-trigger">
                             <div class="content-header">
                                 <h5 class="mb-0">General Information</h5>
-                                <small class="text-muted">Enter Your Product Details</small>
+                                <small class="text-muted">Enter Your Personal Details</small>
                             </div>
                             <div class="dropdown-divider mb-2"></div>
                             <div id="personalinfodiv"></div>
