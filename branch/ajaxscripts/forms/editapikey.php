@@ -1,5 +1,13 @@
+<?php
+include('../../../config.php');
+$keyid = $_POST['i_index'];
+
+$getkey = $mysqli->query("select * from `mnotify` where id = '$keyid'");
+$reskey = $getkey->fetch_assoc();
+?>
+
 <p class="card-text font-small mb-2">
-    Add Key
+    Edit Key
 </p>
 <hr />
 <form class="form form-horizontal">
@@ -10,13 +18,14 @@
                     <label class="col-form-label" for="apikey">Key</label>
                 </div>
                 <div class="col-sm-9">
-                    <input type="text" id="apikey" autocomplete="off" class="form-control" placeholder="Enter Key" />
+                    <input type="text" id="apikey" autocomplete="off" class="form-control" placeholder="Enter Key" value="<?php echo $reskey['mnotify_key'] ?>" />
                 </div>
             </div>
         </div>
 
         <div class="col-sm-9 offset-sm-3">
-            <button type="button" id="apikeybtn" class="btn btn-primary me-1">Submit</button>
+            <button type="button" id="editkeybtn" class="btn btn-warning me-1">Update</button>
+            <button type="button" id="cancelkeybtn" class="btn btn-primary me-1">Cancel</button>
         </div>
     </div>
 </form>
@@ -24,8 +33,12 @@
 
 
 <script>
+    $("#cancelkeybtn").click(function() {
+        location.reload();
+    });
+
     // Add action on form submit
-    $("#apikeybtn").click(function() {
+    $("#editkeybtn").click(function() {
 
         var apikey = $("#apikey").val();
 
@@ -39,14 +52,15 @@
         if (error == "") {
             $.ajax({
                 type: "POST",
-                url: "ajaxscripts/queries/save/apikey.php",
+                url: "ajaxscripts/queries/edit/apikey.php",
                 beforeSend: function() {
                     $.blockUI({
                         message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
                     });
                 },
                 data: {
-                    apikey
+                    apikey: apikey,
+                    keyid: '<?php echo $keyid; ?>'
                 },
                 success: function(text) {
                     //alert(text);
@@ -90,7 +104,7 @@
 
                         });
                     } else {
-                        $("#error_loc").notify("API Key already exists", {
+                        $("#error_loc").notify("Key already exists", {
                             position: "right"
                         });
                     }
