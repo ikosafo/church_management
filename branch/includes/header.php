@@ -311,12 +311,12 @@ function getCompNameHeader($text)
 
 
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/addcustomer.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="addcustomer"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/meetingconfig.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="meetingconfig"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="AddC">Configuration</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/viewcustomers.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="viewcustomers"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/takeattendance.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="takeattendance"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="ViewP">Take Attendance</span></a>
                         </li>
                         <li class="<?php echo ($_SERVER['PHP_SELF'] == "/customerstatistics.php" ? "active" : ""); ?>">
@@ -361,32 +361,32 @@ function getCompNameHeader($text)
                         <span class="menu-title text-truncate" data-i18n="Customers">Financials</span></a>
                     <ul class="menu-content">
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/addexpense.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="addexpense"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/specialseeds.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="specialseeds"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="AddE">Special Offerings/Seeds</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/viewexpenses.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="viewexpenses"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/tithe.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="tithe"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="ViewE">Tithe</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/expensestatistics.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="expensestatistics"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/welfare.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="welfare"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Statistics">Welfare</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/expensestatistics.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="expensestatistics"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/firstfruit.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="firstfruit"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Statistics">First Fruit</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/expensestatistics.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="expensestatistics"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/contributions.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="contributions"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Statistics">Contributions</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/expensestatistics.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="expensestatistics"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/partners.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="partners"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Statistics">Partners</span></a>
                         </li>
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/expensestatistics.php" ? "active" : ""); ?>">
-                            <a class="d-flex align-items-center" href="expensestatistics"><i data-feather="circle"></i>
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/financialsearch.php" ? "active" : ""); ?>">
+                            <a class="d-flex align-items-center" href="financialsearch"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Statistics">Search</span></a>
                         </li>
 
