@@ -1,6 +1,6 @@
 <?php
 include('../../../config.php');
-$random = rand(1, 10) . date("Y-m-d");
+$random = rand(1, 10) . date("Y-m-d H:i:s");
 $branch = $_SESSION['branch'];
 ?>
 
@@ -21,6 +21,14 @@ $branch = $_SESSION['branch'];
 
 <label class="requiredtext">Field marked <span class="required"> * </span> are required</label>
 <form autocomplete="off">
+
+    <div class="row">
+        <div class="mb-1 col-md-4">
+            <label class="form-label">Passport Picture</label>
+            <input type="file" class="form-control" id="memberpicture">
+            <input type="hidden" id="selected" />
+        </div>
+    </div>
 
     <div class="row">
         <div class="mb-1 col-md-4">
@@ -410,6 +418,30 @@ $branch = $_SESSION['branch'];
 
 
 <script>
+    $('#memberpicture').uploadifive({
+        'auto': false,
+        'method': 'post',
+        'buttonText': 'Upload Picture',
+        'fileType': 'image/*',
+        'multi': false,
+        'width': 180,
+        'formData': {
+            'randno': '<?php echo $random ?>'
+        },
+        'dnd': false,
+        'uploadScript': 'ajaxscripts/queries/upload/memberpic.php',
+        'onUploadComplete': function(file, data) {
+            console.log(data);
+        },
+        'onSelect': function(file) {
+            // Update selected so we know they have selected a file
+            $("#selected").val('yes');
+        },
+        'onCancel': function(file) {
+            // Update selected so we know they have no file selected
+            $("#selected").val('');
+        }
+    });
     $("#dob").flatpickr();
     $("#baptismdate").flatpickr();
 
@@ -569,6 +601,7 @@ $branch = $_SESSION['branch'];
                     //alert(text);
 
                     if (text == 1) {
+                        $('#memberpicture').uploadifive('upload');
                         $.notify("Personal Information Saved", "success", {
                             position: "top center"
                         });

@@ -26,7 +26,7 @@ $random = mysqli_real_escape_string($mysqli, $_POST['random']);
 
 $_SESSION['telephone'] = $telephone;
 
-$checkExist = $mysqli->query("SELECT * FROM members WHERE emailaddress = '$emailaddress' OR telephone = '$telephone'");
+$checkExist = $mysqli->query("SELECT * FROM members WHERE telephone = '$telephone'");
 if (mysqli_num_rows($checkExist) > 0) {
     echo 2;
 } else {
