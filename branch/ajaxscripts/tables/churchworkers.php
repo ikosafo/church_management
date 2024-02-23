@@ -84,4 +84,65 @@
     $('#searchtxt').keyup(function() {
         oTable.search($(this).val()).draw();
     });
+
+
+    $(document).off('click', '.deleteworkerbtn').on('click', '.deleteworkerbtn', function() {
+        var theindex = $(this).attr('i_index');
+        //alert(theindex);
+
+        $.confirm({
+            title: 'Delete Worker!',
+            content: 'Are you sure to continue?',
+            buttons: {
+                no: {
+                    text: 'No',
+                    keys: ['enter', 'shift'],
+                    backdrop: 'static',
+                    keyboard: false,
+                    action: function() {
+                        $.alert('Data is safe');
+                    }
+                },
+                yes: {
+                    text: 'Yes, Delete it!',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        $.ajax({
+                            type: "POST",
+                            url: "ajaxscripts/queries/delete/churchworker.php",
+                            data: {
+                                i_index: theindex
+                            },
+                            dataType: "html",
+                            success: function(text) {
+                                //alert(text);
+                                $.ajax({
+                                    url: "ajaxscripts/tables/churchworkers.php",
+                                    beforeSend: function() {
+                                        $.blockUI({
+                                            message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                                        });
+                                    },
+                                    success: function(text) {
+                                        $('#pagetable_div').html(text);
+                                    },
+                                    error: function(xhr, ajaxOptions, thrownError) {
+                                        alert(xhr.status + " " + thrownError);
+                                    },
+                                    complete: function() {
+                                        $.unblockUI();
+                                    },
+
+                                });
+                            },
+                            complete: function() {},
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(xhr.status + " " + thrownError);
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    });
 </script>

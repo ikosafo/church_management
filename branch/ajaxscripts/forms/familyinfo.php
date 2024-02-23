@@ -55,13 +55,13 @@ $branch = $_SESSION['branch'];
 
 
     <div class="d-flex justify-content-between mt-2">
-        <button id="familyinfoprevbtn" class="btn btn-outline-secondary btn-prev waves-effect">
+        <!-- <button id="familyinfoprevbtn" class="btn btn-outline-secondary btn-prev waves-effect">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
             <span class="align-middle d-sm-inline-block d-none">Previous</span>
-        </button>
+        </button> -->
         <button id="familyinfobtn" class="btn btn-success waves-effect waves-float waves-light">
             <span class="align-middle d-sm-inline-block d-none">Finished</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ms-sm-25 ms-0">

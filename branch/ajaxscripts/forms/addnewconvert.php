@@ -7,7 +7,7 @@
     Add New Convert
 </p>
 <hr />
-<form class="form form-horizontal">
+<form class="form form-horizontal" autocomplete="off">
     <div class="row">
         <div class="mb-1 col-md-6">
             <label class="form-label" for="fullname">Full Name</label>
@@ -101,7 +101,6 @@
             $("#hearingabout").focus();
         }
 
-
         if (error == "") {
             $.ajax({
                 type: "POST",
@@ -121,6 +120,10 @@
                 },
                 success: function(text) {
                     //alert(text);
+                    $('html, body').animate({
+                        scrollTop: $("#pagetable_div").offset().top
+                    }, 100);
+
                     $.ajax({
                         url: "ajaxscripts/forms/addnewconvert.php",
                         beforeSend: function() {

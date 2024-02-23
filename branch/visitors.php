@@ -18,10 +18,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6 col-6">
+                                    <div class="col-md-12 col-12">
                                         <div id="pageform_div"></div>
                                     </div>
-                                    <div class="col-md-6 col-6">
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-md-12 col-12">
                                         <div id="pagetable_div"></div>
                                     </div>
                                 </div>

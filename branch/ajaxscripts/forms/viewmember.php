@@ -95,9 +95,9 @@ $resdetails = $getdetails->fetch_assoc();
                         <li class="mb-75">
                             <span class="fw-bolder me-25">Society:</span>
                             <span><?php
-                                    $getsociety = $mysqli->query("SELECT * FROM ministry WHERE id = '{$resdetails['society']}'");
-                                    $ressociety = $getsociety->fetch_assoc();
-                                    echo $ressociety['ministry_name'] ?></span>
+                                    @$getsociety = $mysqli->query("SELECT * FROM ministry WHERE id = '{$resdetails['society']}'");
+                                    @$ressociety = $getsociety->fetch_assoc();
+                                    echo @$ressociety['ministry_name'] ?></span>
                         </li>
                     </ul>
                 </div>

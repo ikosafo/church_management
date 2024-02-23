@@ -1,13 +1,38 @@
-<style>
+<!-- <style>
     #datatable {
         width: 100%;
         /* Adjust as needed */
         overflow-x: auto;
         /* or scroll if you always want a scrollbar */
         white-space: nowrap;
+        /* Prevent wrapping of content */
+        padding-bottom: 20px;
+        /* Add padding to prevent scrollbar from covering content */
+    }
+
+    #datatable::-webkit-scrollbar {
+        width: 12px;
+        /* Width of the scrollbar */
+    }
+
+    #datatable::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        /* Track color */
+    }
+
+    #datatable::-webkit-scrollbar-thumb {
+        background: #888;
+        /* Thumb color */
+        border-radius: 6px;
+        /* Roundness of the thumb */
+    }
+
+    #datatable::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        /* Thumb color on hover */
     }
 </style>
-
+ -->
 
 <section id="datatable">
 
@@ -91,5 +116,65 @@
     });
     $('#searchtxt').keyup(function() {
         oTable.search($(this).val()).draw();
+    });
+
+
+    $(document).off('click', '.deleteconvertbtn').on('click', '.deleteconvertbtn', function() {
+        var theindex = $(this).attr('i_index');
+        //alert(theindex)
+        $.confirm({
+            title: 'Delete Convert!',
+            content: 'Are you sure to continue?',
+            buttons: {
+                no: {
+                    text: 'No',
+                    keys: ['enter', 'shift'],
+                    backdrop: 'static',
+                    keyboard: false,
+                    action: function() {
+                        $.alert('Data is safe');
+                    }
+                },
+                yes: {
+                    text: 'Yes, Delete it!',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        $.ajax({
+                            type: "POST",
+                            url: "ajaxscripts/queries/delete/convert.php",
+                            data: {
+                                i_index: theindex
+                            },
+                            dataType: "html",
+                            success: function(text) {
+                                //alert(text);
+                                $.ajax({
+                                    url: "ajaxscripts/tables/newconverts.php",
+                                    beforeSend: function() {
+                                        $.blockUI({
+                                            message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                                        });
+                                    },
+                                    success: function(text) {
+                                        $('#pagetable_div').html(text);
+                                    },
+                                    error: function(xhr, ajaxOptions, thrownError) {
+                                        alert(xhr.status + " " + thrownError);
+                                    },
+                                    complete: function() {
+                                        $.unblockUI();
+                                    },
+
+                                });
+                            },
+                            complete: function() {},
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(xhr.status + " " + thrownError);
+                            }
+                        });
+                    }
+                }
+            }
+        });
     });
 </script>

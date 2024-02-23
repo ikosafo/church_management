@@ -171,14 +171,7 @@ function getCompNameHeader($text)
                     <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
 
-                <ul class="nav navbar-nav bookmark-icons">
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="addsale" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New Sale">
-                            <i class="ficon" data-feather="shopping-cart"></i></a>
-                    </li>
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="closeday" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Close for the day">
-                            <i class="ficon" data-feather="log-out"></i></a>
-                    </li>
-                </ul>
+
 
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
