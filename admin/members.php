@@ -1,103 +1,90 @@
-<?php require('includes/header.php') ?>
-
-<!-- begin:: Subheader -->
-<div class="kt-subheader  kt-grid__item" id="kt_subheader"></div>
-<!-- end:: Subheader -->
+<?php include('includes/header.php') ?>
 
 
-<!-- begin:: Content -->
-<div class="kt-container  kt-grid__item kt-grid__item--fluid">
-    <!--Begin::Dashboard 3-->
+<!-- BEGIN: Content-->
 
-    <div class="row">
-        <div class="col-xl-12">
-            <!--begin:: Widgets/Applications/User/Profile3-->
-            <div class="kt-portlet kt-portlet--height-fluid">
-                <div class="kt-portlet__body">
-                    <div class="kt-portlet__body">
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
 
-                        <div class="form-group row">
-                            <label class="col-form-label col-lg-3 col-sm-12">Select Branch for <b>Member</b> Details</label>
+        <div class="content-body"><!-- Basic Horizontal form layout section start -->
+            <section id="basic-horizontal-layouts">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" id="error_loc">Members</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-6">
+                                        <select class="form-control kt-select2" id="selectbranch" name="selectbranch">
+                                            <option value="">Select Branch</option>
+                                            <option value="All">All</option>
+                                            <?php
+                                            $getmember = $mysqli->query("select * from `branch` ORDER BY `name`");
+                                            while ($resmember = $getmember->fetch_assoc()) { ?>
+                                                <option value="<?php echo $resmember['id'] ?>"><?php echo $resmember['name'] ?></option>
+                                            <?php } ?>
 
-                            <div class=" col-lg-4 col-md-9 col-sm-12">
-                                <select class="form-control kt-select2" id="select_branch" name="param">
-                                        <option value="">Select Branch</option>
-                                        <option value="All">All</option>
-                                    <?php
-                                    $getmember = $mysqli->query("select * from branch ORDER BY name");
-                                    while ($resmember = $getmember->fetch_assoc()){ ?>
-                                        <option value="<?php echo $resmember['id'] ?>"><?php echo $resmember['name'] ?></option>
-                                    <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12 col-sm-12 col-12">
+                                        <div id="pagetable_div"></div>
+                                    </div>
+                                </div>
 
-                                </select>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <div id="member_table_div"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <div id="approval_div"></div>
-                            </div>
-                        </div>
-
-
                     </div>
+
                 </div>
-            </div>
-            <!--end:: Widgets/Applications/User/Profile3-->
+            </section>
+            <!-- Basic Horizontal form layout section end -->
+
+
+
         </div>
     </div>
+</div>
 
-    <!--End::Dashboard 3-->    </div>
+<!-- END: Content-->
 
 
-
-
-<!-- end:: Content -->
-
-<?php require('includes/footer.php') ?>
+<?php include('includes/footer.php') ?>
 
 
 <script>
-    var KTSelect2 = {
-        init: function () {
-            $("#select_branch").select2({placeholder: "Select Branch"})
-        }
-    };
-    jQuery(document).ready(function () {
-        KTSelect2.init()
+    $("#selectbranch").select2({
+        placeholder: "Select Branch",
+        allowClear: true
     });
+    //Load table
 
-
-    $("#select_branch").change(function () {
-        var select_branch = $("#select_branch").val();
+    $("#selectbranch").change(function() {
+        var selectbranch = $("#selectbranch").val();
         $.ajax({
             type: "POST",
-            url: "ajax/tables/member_table.php",
-            beforeSend: function () {
-                KTApp.blockPage({
-                    overlayColor: "#000000",
-                    type: "v2",
-                    state: "success",
-                    message: "Please wait..."
-                })
+            url: "ajaxscripts/tables/members.php",
+            beforeSend: function() {
+                $.blockUI({
+                    message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                });
             },
             data: {
-                select_branch: select_branch
+                selectbranch: selectbranch
             },
-            success: function (text) {
-                $('#member_table_div').html(text);
+            success: function(text) {
+                $('#pagetable_div').html(text);
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + " " + thrownError);
             },
-            complete: function () {
-                KTApp.unblockPage();
+            complete: function() {
+                $.unblockUI();
             },
 
         });
@@ -105,41 +92,30 @@
 
 
 
-    $(document).on('click', '.memberdetailsbtn', function() {
-        var id_index = $(this).attr('memberid');
+    //View member details after icon click
+    $(document).on('click', '.viewmemberbtn', function() {
+        var id_index = $(this).attr('i_index');
         //alert(id_index);
-
-        $('html, body').animate({
-            scrollTop: $("#approval_div").offset().top
-        }, 2000);
-
         $.ajax({
             type: "POST",
-            url: "memberdetails.php",
+            url: "ajaxscripts/forms/viewmember.php",
             data: {
-                id_index:id_index
+                id_index: id_index
             },
-            beforeSend: function () {
-                KTApp.blockPage({
-                    overlayColor: "#000000",
-                    type: "v2",
-                    state: "success",
-                    message: "Please wait..."
-                })
+            beforeSend: function() {
+                $.blockUI({
+                    message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                });
             },
-            success: function (text) {
-                $('#approval_div').html(text);
+            success: function(text) {
+                $('#pagetable_div').html(text);
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + " " + thrownError);
             },
-            complete: function () {
-                KTApp.unblockPage();
+            complete: function() {
+                $.unblockUI();
             },
-
         });
     });
-
-
 </script>
-

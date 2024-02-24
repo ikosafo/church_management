@@ -1,5 +1,11 @@
+<?php
+include('../../../config.php');
+$branchid = $_POST['i_index'];
+$getdetails = $mysqli->query("select * from `branch` where id = '$branchid'");
+$resdetails = $getdetails->fetch_assoc();
+?>
 <p class="card-text font-small mb-2">
-    Add Branch
+    Edit Branch
 </p>
 <hr />
 <form class="form form-horizontal">
@@ -10,7 +16,7 @@
                     <label class="col-form-label" for="branchname">Branch Name</label>
                 </div>
                 <div class="col-sm-9">
-                    <input type="text" id="branchname" autocomplete="off" class="form-control" placeholder="Enter Branch Name" />
+                    <input type="text" id="branchname" autocomplete="off" class="form-control" placeholder="Enter Branch Name" value="<?php echo $resdetails['name'] ?>" />
                 </div>
             </div>
         </div>
@@ -20,7 +26,7 @@
                     <label class="col-form-label" for="branchlocation">Branch Location</label>
                 </div>
                 <div class="col-sm-9">
-                    <input type="text" id="branchlocation" autocomplete="off" class="form-control" placeholder="Enter Branch Location" />
+                    <input type="text" id="branchlocation" autocomplete="off" class="form-control" placeholder="Enter Branch Location" value="<?php echo $resdetails['location'] ?>" />
                 </div>
             </div>
         </div>
@@ -30,13 +36,14 @@
                     <label class="col-form-label" for="branchcode">Branch Code</label>
                 </div>
                 <div class="col-sm-9">
-                    <input type="text" id="branchcode" autocomplete="off" class="form-control" placeholder="Enter Branch Code" />
+                    <input type="text" id="branchcode" autocomplete="off" class="form-control" placeholder="Enter Branch Code" value="<?php echo $resdetails['code'] ?>" />
                 </div>
             </div>
         </div>
 
         <div class="col-sm-9 offset-sm-3">
-            <button type="button" id="branchbtn" class="btn btn-primary me-1">Submit</button>
+            <button type="button" id="editbranchbtn" class="btn btn-warning me-1">Update</button>
+            <button type="button" id="cancelbranchbtn" class="btn btn-primary me-1">Cancel</button>
         </div>
     </div>
 </form>
@@ -44,8 +51,14 @@
 
 
 <script>
+    $("#cancelbranchbtn").click(function() {
+        location.reload();
+    });
+
+
+
     // Add action on form submit
-    $("#branchbtn").click(function() {
+    $("#editbranchbtn").click(function() {
 
         var branchname = $("#branchname").val();
         var branchlocation = $("#branchlocation").val();
@@ -68,16 +81,17 @@
         if (error == "") {
             $.ajax({
                 type: "POST",
-                url: "ajaxscripts/queries/save/branch.php",
+                url: "ajaxscripts/queries/edit/branch.php",
                 beforeSend: function() {
                     $.blockUI({
                         message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
                     });
                 },
                 data: {
-                    branchname,
-                    branchlocation,
-                    branchcode
+                    branchname: branchname,
+                    branchlocation: branchlocation,
+                    branchcode: branchcode,
+                    branchid: '<?php echo $branchid; ?>'
                 },
                 success: function(text) {
                     //alert(text);

@@ -1,39 +1,3 @@
-<!-- <style>
-    #datatable {
-        width: 100%;
-        /* Adjust as needed */
-        overflow-x: auto;
-        /* or scroll if you always want a scrollbar */
-        white-space: nowrap;
-        /* Prevent wrapping of content */
-        padding-bottom: 20px;
-        /* Add padding to prevent scrollbar from covering content */
-    }
-
-    #datatable::-webkit-scrollbar {
-        width: 12px;
-        /* Width of the scrollbar */
-    }
-
-    #datatable::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        /* Track color */
-    }
-
-    #datatable::-webkit-scrollbar-thumb {
-        background: #888;
-        /* Thumb color */
-        border-radius: 6px;
-        /* Roundness of the thumb */
-    }
-
-    #datatable::-webkit-scrollbar-thumb:hover {
-        background: #555;
-        /* Thumb color on hover */
-    }
-</style>
- -->
-
 <section id="datatable">
 
     <form class="faq-search-input mb-1">

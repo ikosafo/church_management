@@ -1,6 +1,7 @@
+<?php $selectbranch = $_POST['selectbranch']; ?>
 <section id="datatable">
 
-    <form class="faq-search-input">
+    <form class="faq-search-input mb-1">
         <div class="input-group input-group-merge">
             <div class="input-group-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -12,17 +13,18 @@
         </div>
     </form>
 
-
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <table class="table mt-2" id="table-data">
+                <table class="table mt-2 table-sm" id="table-data">
                     <thead>
                         <tr>
-                            <th>Branch Name</th>
-                            <th>Branch Location</th>
-                            <th>Branch Code</th>
-                            <th>Action</th>
+                            <th>Full Name</th>
+                            <th>Telephone</th>
+                            <th>Residence</th>
+                            <th>Previous Denomination</th>
+                            <th>How did you hear?</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                 </table>
@@ -39,25 +41,37 @@
     oTable = $('#table-data').DataTable({
         stateSave: true,
         "bLengthChange": false,
-        dom: "rtiplf",
+        dom: "Bfrtip",
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
         "sDom": '<"top"ip>rt<"bottom"fl><"clear">',
         'processing': true,
         'serverSide': true,
         'serverMethod': 'post',
         'ajax': {
-            url: "ajaxscripts/tables/pagination/branches.php", // json datasource
+            url: "ajaxscripts/tables/pagination/converts.php?branch=<?php echo $selectbranch ?>",
         },
         'columns': [{
-                data: 'name'
+                data: 'fullname'
             },
             {
-                data: 'location'
+                data: 'telephone'
             },
             {
-                data: 'code'
+                data: 'residence'
             },
             {
-                data: 'action'
+                data: 'denomination'
+            },
+            {
+                data: 'hearing_about'
+            },
+            {
+                data: 'description'
             }
         ]
     });
@@ -66,32 +80,11 @@
     });
 
 
-    $(document).off('click', '.editbranchbtn').on('click', '.editbranchbtn', function() {
-        var theindex = $(this).attr('i_index');
-        //alert(theindex)
-        $.ajax({
-            type: "POST",
-            url: "ajaxscripts/forms/editbranch.php",
-            data: {
-                i_index: theindex
-            },
-            dataType: "html",
-            success: function(text) {
-                $('#pageform_div').html(text);
-            },
-            complete: function() {},
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + " " + thrownError);
-            }
-        });
-    });
-
-
-    $(document).off('click', '.deletebranchbtn').on('click', '.deletebranchbtn', function() {
+    $(document).off('click', '.deleteconvertbtn').on('click', '.deleteconvertbtn', function() {
         var theindex = $(this).attr('i_index');
         //alert(theindex)
         $.confirm({
-            title: 'Delete Branch!',
+            title: 'Delete Convert!',
             content: 'Are you sure to continue?',
             buttons: {
                 no: {
@@ -109,7 +102,7 @@
                     action: function() {
                         $.ajax({
                             type: "POST",
-                            url: "ajaxscripts/queries/delete/branch.php",
+                            url: "ajaxscripts/queries/delete/convert.php",
                             data: {
                                 i_index: theindex
                             },
@@ -117,7 +110,7 @@
                             success: function(text) {
                                 //alert(text);
                                 $.ajax({
-                                    url: "ajaxscripts/tables/branches.php",
+                                    url: "ajaxscripts/tables/newconverts.php",
                                     beforeSend: function() {
                                         $.blockUI({
                                             message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
@@ -135,7 +128,6 @@
 
                                 });
                             },
-
                             complete: function() {},
                             error: function(xhr, ajaxOptions, thrownError) {
                                 alert(xhr.status + " " + thrownError);
