@@ -413,13 +413,13 @@ function getCompNameHeader($text)
                 <li class=" navigation-header"><span data-i18n="Extras">Extras</span><i data-feather="more-horizontal"></i>
                 </li>
 
-                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/inventory.php" ? "active" : ""); ?>">
-                    <a class="d-flex align-items-center" href="inventory"><i data-feather="smile"></i>
+                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/birthdays.php" ? "active" : ""); ?>">
+                    <a class="d-flex align-items-center" href="birthdays"><i data-feather="smile"></i>
                         <span class="menu-item text-truncate" data-i18n="Inventory">Birthdays</span></a>
                 </li>
 
-                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/client_messages.php" ? "active" : ""); ?> nav-item">
-                    <a class="d-flex align-items-center" href="client_messages">
+                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/sms.php" ? "active" : ""); ?> nav-item">
+                    <a class="d-flex align-items-center" href="sms">
                         <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Price Rules">SMS</span></a>
                 </li>
 
