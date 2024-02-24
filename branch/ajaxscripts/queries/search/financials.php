@@ -10,7 +10,7 @@ function getName($id)
     global $mysqli;
     $getName = $mysqli->query("select * from `members` where id = '$id'");
     $resName = $getName->fetch_assoc();
-    return $resName['fullname'];
+    return @$resName['fullname'];
 }
 
 

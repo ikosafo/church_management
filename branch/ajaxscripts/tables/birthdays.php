@@ -111,7 +111,42 @@ $getbdwk = $mysqli->query("SELECT * FROM `members` WHERE branch = '$branch' AND 
                     </tbody>
 
                 </table>
-                <div class="form-group row">
+
+                <!-- <div class="row">
+                    <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 col-12">
+                        <hr />
+                        <p class="card-text font-small mb-2">
+                            Send Message to Birthday Celebrants
+                        </p>
+
+                        <div class="form-group row">
+                            <div class="mb-1 col-md-12">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Enter Title">
+                            </div>
+                            <div class="mb-1 col-md-12">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="10" placeholder="Enter Message"></textarea>
+                            </div>
+                            <div class="mb-1 col-md-6">
+                                <label class="form-label" for="type">Type</label>
+                                <select id="type" style="width: 100%">
+                                    <option></option>
+                                    <option value="To Bank">To Bank</option>
+                                    <option value="Expense">Expense</option>
+                                </select>
+                            </div>
+                            <div class="mb-1 col-md-6">
+                                <label class="form-label" for="purpose">Purpose/Description</label>
+                                <textarea class="form-control" id="purpose" placeholder="Enter Purpose"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 col-12">
+                        <div id="pagetable_div"></div>
+                    </div>
+                </div> -->
+                <!--   <div class="form-group row">
                     <div class="col-md-5">
                         <div class="kt-portlet">
                             <div class="kt-portlet__head">
@@ -121,7 +156,7 @@ $getbdwk = $mysqli->query("SELECT * FROM `members` WHERE branch = '$branch' AND 
                                     </h3>
                                 </div>
                             </div>
-                            <!--begin::Form-->
+
                             <form class="">
                                 <div class="kt-portlet__body">
                                     <div class="form-group">
@@ -140,7 +175,7 @@ $getbdwk = $mysqli->query("SELECT * FROM `members` WHERE branch = '$branch' AND 
                                     </div>
                                 </div>
                             </form>
-                            <!--end::Form-->
+
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -152,15 +187,15 @@ $getbdwk = $mysqli->query("SELECT * FROM `members` WHERE branch = '$branch' AND 
                                     </h3>
                                 </div>
                             </div>
-                            <!--begin::Form-->
+
                             <div class="kt-portlet__body">
                                 <div id="sendmessage_div"></div>
                             </div>
-                            <!--end::Form-->
+
                         </div>
                     </div>
                 </div>
-
+ -->
             <?php  } else {
                         echo '<div style="color: red;font-weight: 500;text-align: center">No birthday today!</div><hr/>';
                     } ?>

@@ -423,12 +423,7 @@ function getCompNameHeader($text)
                         <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Price Rules">SMS</span></a>
                 </li>
 
-                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/messages.php" ? "active" : ""); ?> nav-item">
-                    <a class="d-flex align-items-center" href="messages">
-                        <i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Messages">Messages</span></a>
-                </li>
-
-                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/storeconfig.php" ? "active" : ""); ?> nav-item">
+                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/storeconfig.php" ? "active" : ""); ?> nav-item">
                     <a class="d-flex align-items-center" href="storeconfig">
                         <i data-feather="tool"></i><span class="menu-title text-truncate" data-i18n="Store Config">Store Config</span></a>
                 </li>

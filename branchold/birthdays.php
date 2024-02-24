@@ -57,10 +57,9 @@
 
 
 <script>
-
     $.ajax({
         url: "ajax/tables/memberbirthday_table.php",
-        beforeSend: function () {
+        beforeSend: function() {
             KTApp.blockPage({
                 overlayColor: "#000000",
                 type: "v2",
@@ -68,13 +67,13 @@
                 message: "Please wait..."
             })
         },
-        success: function (text) {
+        success: function(text) {
             $('#member_table_div').html(text);
         },
-        error: function (xhr, ajaxOptions, thrownError) {
+        error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + " " + thrownError);
         },
-        complete: function () {
+        complete: function() {
             KTApp.unblockPage();
         },
 
@@ -86,16 +85,16 @@
 
         $('html, body').animate({
             scrollTop: $("#approval_div").offset().top
-        }, 2000);
+        }, 500);
 
         $.ajax({
             type: "POST",
             url: "sendmessage_member.php",
             data: {
-                id_index:id_index,
-                branch:branch
+                id_index: id_index,
+                branch: branch
             },
-            beforeSend: function () {
+            beforeSend: function() {
                 KTApp.blockPage({
                     overlayColor: "#000000",
                     type: "v2",
@@ -103,13 +102,13 @@
                     message: "Please wait..."
                 })
             },
-            success: function (text) {
+            success: function(text) {
                 $('#approval_div').html(text);
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + " " + thrownError);
             },
-            complete: function () {
+            complete: function() {
                 KTApp.unblockPage();
             },
 
@@ -118,4 +117,3 @@
 
     });
 </script>
-

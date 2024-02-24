@@ -451,6 +451,7 @@ $random = $resdetails['random'];
         'fileType': 'image/*',
         'multi': false,
         'width': 180,
+        "fileSizeLimit": "20MB",
         'formData': {
             'randno': '<?php echo $random ?>'
         },
@@ -468,6 +469,8 @@ $random = $resdetails['random'];
             $("#selected").val('');
         }
     });
+
+
     $("#dob").flatpickr();
     $("#baptismdate").flatpickr();
 

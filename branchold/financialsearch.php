@@ -36,8 +36,7 @@
                                         <label>Select Date From:</label>
                                     </div>
                                     <div class="kt-form__control">
-                                        <input type="text" class="form-control" id="datefrom"
-                                               placeholder="Select Start Period" autocomplete="off">
+                                        <input type="text" class="form-control" id="datefrom" placeholder="Select Start Period" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -48,8 +47,7 @@
                                         <label>Select Date To:</label>
                                     </div>
                                     <div class="kt-form__control">
-                                        <input type="text" class="form-control" id="dateto"
-                                               placeholder="Select Start Period" autocomplete="off">
+                                        <input type="text" class="form-control" id="dateto" placeholder="Select Start Period" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +122,7 @@
         orientation: "bottom"
     });
 
-    $("#load_btn").click(function(){
+    $("#load_btn").click(function() {
         var datefrom = $("#datefrom").val();
         var dateto = $("#dateto").val();
         var fin_type = $("#fin_type").val();
@@ -151,7 +149,7 @@
             $.ajax({
                 type: "POST",
                 url: "ajax/queries/financials_search.php",
-                beforeSend: function () {
+                beforeSend: function() {
                     KTApp.blockPage({
                         overlayColor: "#000000",
                         type: "v2",
@@ -161,22 +159,23 @@
                 },
                 data: {
                     datefrom: datefrom,
-                    dateto:dateto,
-                    fin_type:fin_type
+                    dateto: dateto,
+                    fin_type: fin_type
                 },
-                success: function (text) {
+                success: function(text) {
                     $('#attendance_table_div').html(text);
                 },
-                error: function (xhr, ajaxOptions, thrownError) {
+                error: function(xhr, ajaxOptions, thrownError) {
                     alert(xhr.status + " " + thrownError);
                 },
-                complete: function () {
+                complete: function() {
                     KTApp.unblockPage();
                 },
             });
-        }
-        else {
-            $.notify(error, {position: "top center"});
+        } else {
+            $.notify(error, {
+                position: "top center"
+            });
         }
         return false;
     });
@@ -192,7 +191,7 @@
 
         $('html, body').animate({
             scrollTop: $("#approval_div").offset().top
-        }, 2000);
+        },500);
 
         $.ajax({
             type: "POST",
@@ -224,7 +223,4 @@
 
 
     });*/
-
-
 </script>
-

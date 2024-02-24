@@ -1,6 +1,4 @@
-<?php include('includes/header.php');
-$financialtype = 'Welfare';
-?>
+<?php include('includes/header.php') ?>
 
 
 <!-- BEGIN: Content-->
@@ -16,18 +14,15 @@ $financialtype = 'Welfare';
                     <div class="col-md-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="error_loc">Welfare</h4>
+                                <h4 class="card-title" id="error_loc">SMS</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-12 col-12">
+                                    <div class="col-md-6 col-6">
                                         <div id="pageform_div"></div>
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <div id="approval_div"></div>
+                                    <div class="col-md-6 col-6">
+                                        <div id="pagetable_div"></div>
                                     </div>
                                 </div>
 
@@ -52,21 +47,16 @@ $financialtype = 'Welfare';
 
 
 <script>
+    //Load form
     $.ajax({
-        type: "POST",
-        url: "ajaxscripts/forms/financials.php",
+        url: "ajaxscripts/forms/addsms.php",
         beforeSend: function() {
             $.blockUI({
                 message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
             });
         },
-        data: {
-            financialtype: '<?php echo $financialtype ?>'
-        },
         success: function(text) {
-            //alert(text);
             $('#pageform_div').html(text);
-
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + " " + thrownError);
@@ -74,41 +64,28 @@ $financialtype = 'Welfare';
         complete: function() {
             $.unblockUI();
         },
+
     });
 
-    $(document).on('click', '.paywelfare_btn', function() {
-        var id_index = $(this).attr('i_index');
-        var branch = '<?php echo $_SESSION['branch']; ?>';
-        //alert(id_index + ' ' + branch);
 
-        $('html, body').animate({
-            scrollTop: $("#approval_div").offset().top
-        }, 500);
 
-        $.ajax({
-            type: "POST",
-            url: "welfarepayment.php",
-            data: {
-                id_index: id_index,
-                branch: branch
-            },
-            beforeSend: function() {
-                $.blockUI({
-                    message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
-                });
-            },
-            success: function(text) {
-                $('#approval_div').html(text);
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + " " + thrownError);
-            },
-            complete: function() {
-                $.unblockUI();
-            },
-
-        });
-
+    //Load table
+    $.ajax({
+        url: "ajaxscripts/tables/sms.php",
+        beforeSend: function() {
+            $.blockUI({
+                message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+            });
+        },
+        success: function(text) {
+            $('#pagetable_div').html(text);
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + " " + thrownError);
+        },
+        complete: function() {
+            $.unblockUI();
+        },
 
     });
 </script>

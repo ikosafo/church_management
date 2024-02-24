@@ -83,7 +83,7 @@ $financialtype = 'Contributions';
 
         $('html, body').animate({
             scrollTop: $("#approval_div").offset().top
-        }, 2000);
+        }, 500);
 
         $.ajax({
             type: "POST",

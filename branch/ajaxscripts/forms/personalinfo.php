@@ -425,6 +425,7 @@ $branch = $_SESSION['branch'];
         'fileType': 'image/*',
         'multi': false,
         'width': 180,
+        "fileSizeLimit": "20MB",
         'formData': {
             'randno': '<?php echo $random ?>'
         },
