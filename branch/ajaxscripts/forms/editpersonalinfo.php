@@ -1,11 +1,12 @@
 <?php
 include('../../../config.php');
-$random = rand(1, 10) . date("Y-m-d H:i:s");
+//$random = rand(1, 10) . date("Y-m-d H:i:s");
 $branch = $_SESSION['branch'];
 $memberid = $_POST['memberid'];
 
 $getdetails = $mysqli->query("select * from `members` where id = '$memberid'");
 $resdetails = $getdetails->fetch_assoc();
+$random = $resdetails['random'];
 ?>
 
 <style>
