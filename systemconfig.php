@@ -20,7 +20,7 @@ $random = rand(1, 10) . date("Y-m-d");
                         <div class="mb-1">
                             <label class="form-label" for="churchname">Church Name</label>
 
-                            <input type="text" id="churchname" class="form-control" placeholder="Company Name" aria-label="Company Name" aria-describedby="churchname" required />
+                            <input type="text" id="churchname" class="form-control" placeholder="Church Name" aria-label="Company Name" aria-describedby="churchname" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Please enter your church's name.</div>
                         </div>
