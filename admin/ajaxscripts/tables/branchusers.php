@@ -44,7 +44,7 @@ $getdata = $mysqli->query("select * from `users_admin` ORDER BY `fullname`");
                                 </td>
                                 <td>
                                     <div class="text-center">
-                                        <a class="deletebranchuserbtn" title="Delete Branch" i_index=' . $id . '>
+                                        <a class="deletebranchuserbtn" title="Delete Branch User" i_index=<?php echo $fetch['id']; ?>>
                                             <span class="icon-wrapper cursor-pointer" title="Delete Category">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
                                                     <polyline points="3 6 5 6 21 6"></polyline>
@@ -81,5 +81,69 @@ $getdata = $mysqli->query("select * from `users_admin` ORDER BY `fullname`");
     });
     $('#searchtxt').keyup(function() {
         oTable.search($(this).val()).draw();
+    });
+
+
+
+    $(document).off('click', '.deletebranchuserbtn').on('click', '.deletebranchuserbtn', function() {
+        var theindex = $(this).attr('i_index');
+        //alert(theindex)
+        $.confirm({
+            title: 'Delete Branch User!',
+            content: 'Are you sure to continue?',
+            buttons: {
+                no: {
+                    text: 'No',
+                    keys: ['enter', 'shift'],
+                    backdrop: 'static',
+                    keyboard: false,
+                    action: function() {
+                        $.alert('Data is safe');
+                    }
+                },
+                yes: {
+                    text: 'Yes, Delete it!',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        $.ajax({
+                            type: "POST",
+                            url: "ajaxscripts/queries/delete/branchuser.php",
+                            data: {
+                                i_index: theindex
+                            },
+                            dataType: "html",
+                            success: function(text) {
+                                //alert(text);
+
+                                //Load table
+                                $.ajax({
+                                    url: "ajaxscripts/tables/branchusers.php",
+                                    beforeSend: function() {
+                                        $.blockUI({
+                                            message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                                        });
+                                    },
+                                    success: function(text) {
+                                        $('#pagetable_div').html(text);
+                                    },
+                                    error: function(xhr, ajaxOptions, thrownError) {
+                                        alert(xhr.status + " " + thrownError);
+                                    },
+                                    complete: function() {
+                                        $.unblockUI();
+                                    },
+
+                                });
+                            },
+
+                            complete: function() {},
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(xhr.status + " " + thrownError);
+                            }
+                        });
+                    }
+                }
+            }
+        });
     });
 </script>
