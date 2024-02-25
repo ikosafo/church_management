@@ -198,7 +198,7 @@ $random = rand(1, 10) . date("Y-m-d");
             });
         } else {
             $("#error_loc").notify(error, {
-                position: "right"
+                position: "top middle"
             });
         }
         return false;
