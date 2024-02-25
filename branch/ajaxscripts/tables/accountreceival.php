@@ -28,7 +28,7 @@ DATE_FORMAT(datereceived, '%Y-%m') ORDER BY DATE_FORMAT(datereceived, '%Y-%m') D
 
     <div class="kt-section__content responsive scrollbar-auto">
         <div class="table-responsive">
-            <table>
+            <table class="table table-sm" style="width: 100% !important;">
                 <tbody>
                     <?php
                     while ($fetch = $getyearmonth->fetch_assoc()) {

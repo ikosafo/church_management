@@ -28,8 +28,8 @@ $random = rand(1, 10000) . date("Ymd");
 
         <div class="form-group row">
             <div class="mb-1 col-lg-6 col-md-6">
-                <label class="form-label" for="datereceived">Date Received</label>
-                <input type="text" class="form-control" id="datereceived" placeholder="Select Date" value="<?php echo date('Y-m-d') ?>" autocomplete="off">
+                <label class="form-label" for="datepaid">Date Paid</label>
+                <input type="text" class="form-control" id="datepaid" placeholder="Select Date" value="<?php echo date('Y-m-d') ?>" autocomplete="off">
             </div>
             <div class="mb-1 col-md-6">
                 <label class="form-label" for="amount">Amount</label>
@@ -64,7 +64,7 @@ $random = rand(1, 10000) . date("Ymd");
 
 
 <script>
-    $('#datereceived').flatpickr();
+    $('#datepaid').flatpickr();
 
     $("#type").select2({
         placeholder: "Select Type",

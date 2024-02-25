@@ -26,7 +26,7 @@ DATE_FORMAT(datepaid, '%Y-%m') ORDER BY DATE_FORMAT(datepaid, '%Y-%m') DESC")
 
     <div class="kt-section__content responsive scrollbar-auto">
         <div class="table-responsive">
-            <table class="table" style="width: 100% !important;">
+            <table class="table table-sm" style="width: 100% !important;">
                 <tbody>
                     <?php
                     while ($fetch = $getyearmonth->fetch_assoc()) {
@@ -71,8 +71,8 @@ DATE_FORMAT(datepaid, '%Y-%m') ORDER BY DATE_FORMAT(datepaid, '%Y-%m') DESC")
                                                 </td>
 
                                                 <td>
-                                                    <button type="button" data-type="confirm" class="btn btn-sm btn-danger js-sweetalert delete_payment" i_index="<?php echo $resdetails['pid'] ?>" title="Delete">
-                                                        <i class="flaticon2-trash ml-2" style="color: #fff !important;"></i>
+                                                    <button type="button" data-type="confirm" class="btn btn-sm btn-danger js-sweetalert deletepayment" i_index="<?php echo $resdetails['pid'] ?>" title="Delete">
+                                                        <span style="color: #fff !important;">Del</span>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -110,7 +110,7 @@ DATE_FORMAT(datepaid, '%Y-%m') ORDER BY DATE_FORMAT(datepaid, '%Y-%m') DESC")
 </div>
 
 <script>
-    $(document).off('click', '.delete_payment').on('click', '.delete_payment', function() {
+    $(document).off('click', '.deletepayment').on('click', '.deletepayment', function() {
         var theindex = $(this).attr('i_index');
         //alert(theindex)
         $.confirm({
@@ -132,31 +132,29 @@ DATE_FORMAT(datepaid, '%Y-%m') ORDER BY DATE_FORMAT(datepaid, '%Y-%m') DESC")
                     action: function() {
                         $.ajax({
                             type: "POST",
-                            url: "ajax/queries/delete_payment.php",
+                            url: "ajaxscripts/queries/delete/payment.php",
                             data: {
                                 i_index: theindex
                             },
                             dataType: "html",
                             success: function(text) {
                                 $.ajax({
-                                    url: "ajax/tables/payment_table.php",
+                                    url: "ajaxscripts/tables/accountpayment.php",
                                     beforeSend: function() {
-                                        KTApp.blockPage({
-                                            overlayColor: "#000000",
-                                            type: "v2",
-                                            state: "success",
-                                            message: "Please wait..."
-                                        })
+                                        $.blockUI({
+                                            message: '<h3 style="margin-top:6px"><img src="https://jquery.malsup.com/block/busy.gif" /> Just a moment...</h3>'
+                                        });
                                     },
                                     success: function(text) {
-                                        $('#paymenttable_div').html(text);
+                                        $('#pagetable_div').html(text);
                                     },
                                     error: function(xhr, ajaxOptions, thrownError) {
                                         alert(xhr.status + " " + thrownError);
                                     },
                                     complete: function() {
-                                        KTApp.unblockPage();
+                                        $.unblockUI();
                                     },
+
                                 });
                             },
 
