@@ -141,7 +141,7 @@ $random = rand(1, 10000) . date("Ymd");
                     partners: partners
                 },
                 success: function(text) {
-                    alert(text);
+                    //alert(text);
 
                     $("#success_loc").notify("Updated", "success");
 

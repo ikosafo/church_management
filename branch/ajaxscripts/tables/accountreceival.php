@@ -103,8 +103,8 @@ DATE_FORMAT(datereceived, '%Y-%m') ORDER BY DATE_FORMAT(datereceived, '%Y-%m') D
                                                     echo number_format($tot, 2); ?>
                                                 </td>
                                                 <td>
-                                                    <button type="button" data-type="confirm" class="btn btn-sm btn-danger js-sweetalert delete_receival" i_index="<?php echo $resdetails['rid'] ?>" title="Delete">
-                                                        <i class="flaticon2-trash ml-2" style="color: #fff !important;"></i>
+                                                    <button type="button" data-type="confirm" class="btn btn-sm btn-danger js-sweetalert deletereceival" i_index="<?php echo $resdetails['rid'] ?>" title="Delete">
+                                                        <span style="color: #fff !important;">Del</span>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -227,7 +227,7 @@ DATE_FORMAT(datereceived, '%Y-%m') ORDER BY DATE_FORMAT(datereceived, '%Y-%m') D
 </div>
 
 <script>
-    $(document).off('click', '.delete_receival').on('click', '.delete_receival', function() {
+    $(document).off('click', '.deletereceival').on('click', '.deletereceival', function() {
         var theindex = $(this).attr('i_index');
         //alert(theindex)
         $.confirm({
@@ -249,13 +249,14 @@ DATE_FORMAT(datereceived, '%Y-%m') ORDER BY DATE_FORMAT(datereceived, '%Y-%m') D
                     action: function() {
                         $.ajax({
                             type: "POST",
-                            url: "ajax/queries/delete_receival.php",
+                            url: "ajaxscripts/queries/delete/receival.php",
                             data: {
                                 i_index: theindex
                             },
                             dataType: "html",
                             success: function(text) {
 
+                                //Load table
                                 $.ajax({
                                     url: "ajaxscripts/tables/accountreceival.php",
                                     beforeSend: function() {
@@ -272,6 +273,7 @@ DATE_FORMAT(datereceived, '%Y-%m') ORDER BY DATE_FORMAT(datereceived, '%Y-%m') D
                                     complete: function() {
                                         $.unblockUI();
                                     },
+
                                 });
 
                             },
