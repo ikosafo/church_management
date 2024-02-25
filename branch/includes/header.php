@@ -402,7 +402,7 @@ function getCompNameHeader($text)
                                 <span class="menu-item text-truncate" data-i18n="ViewU">Payments</span></a>
                         </li>
 
-                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "//branch/accountsearch.php.php" ? "active" : ""); ?>">
+                        <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/accountsearch.php" ? "active" : ""); ?>">
                             <a class="d-flex align-items-center" href="accountsearch"><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Permissions">Search</span></a>
                         </li>
@@ -420,13 +420,13 @@ function getCompNameHeader($text)
 
                 <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/sms.php" ? "active" : ""); ?> nav-item">
                     <a class="d-flex align-items-center" href="sms">
-                        <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Price Rules">SMS</span></a>
+                        <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Price Rules">Bulk SMS</span></a>
                 </li>
 
-                <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/storeconfig.php" ? "active" : ""); ?> nav-item">
+                <!--  <li class="<?php echo ($_SERVER['PHP_SELF'] == "/branch/storeconfig.php" ? "active" : ""); ?> nav-item">
                     <a class="d-flex align-items-center" href="storeconfig">
                         <i data-feather="tool"></i><span class="menu-title text-truncate" data-i18n="Store Config">Store Config</span></a>
-                </li>
+                </li> -->
 
                 <li class=" nav-item"><a class="d-flex align-items-center" href="../login">
                         <i data-feather="save"></i><span class="menu-title text-truncate" data-i18n="Log Out">Log out</span></a>

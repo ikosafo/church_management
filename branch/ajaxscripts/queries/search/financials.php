@@ -3,7 +3,7 @@
 $branch = $_SESSION['branch'];
 $datefrom = $_POST['datefrom'];
 $dateto = $_POST['dateto'];
-$fin_type = $_POST['fin_type'];
+$acc_type = $_POST['acc_type'];
 
 function getName($id)
 {
@@ -39,13 +39,13 @@ function getName($id)
             </div>
             <div class="col-md-4">
                 TYPE:
-                <small><?php echo $fin_type ?></small>
+                <small><?php echo $acc_type ?></small>
             </div>
         </div>
 
 
         <?php
-        if ($fin_type == "Special Offerings/Seeds") {
+        if ($acc_type == "Special Offerings/Seeds") {
             $gettable = $mysqli->query("select * from f_offerings where branch = '$branch' and date_paid BETWEEN '$datefrom'
                                    AND '$dateto' ORDER by id DESC");
         ?>
@@ -97,7 +97,7 @@ function getName($id)
                     </table>
                 </div>
             </div>
-        <?php } else  if ($fin_type == "Tithe") {
+        <?php } else  if ($acc_type == "Tithe") {
             $gettable = $mysqli->query("select * from f_tithe where branch = '$branch' and date_paid BETWEEN '$datefrom'
                                    AND '$dateto' ORDER by id DESC");
         ?>
@@ -151,7 +151,7 @@ function getName($id)
                     </table>
                 </div>
             </div>
-        <?php } else  if ($fin_type == "Welfare") {
+        <?php } else  if ($acc_type == "Welfare") {
             $gettable = $mysqli->query("select * from f_welfare where branch = '$branch' and date_paid BETWEEN '$datefrom'
                                    AND '$dateto' ORDER by id DESC");
         ?>
@@ -204,7 +204,7 @@ function getName($id)
                     </table>
                 </div>
             </div>
-        <?php } else  if ($fin_type == "First Fruit") {
+        <?php } else  if ($acc_type == "First Fruit") {
             $gettable = $mysqli->query("select * from f_firstfruit where branch = '$branch' and date_paid BETWEEN '$datefrom'
                                    AND '$dateto' ORDER by id DESC");
         ?>
@@ -257,7 +257,7 @@ function getName($id)
                     </table>
                 </div>
             </div>
-        <?php } else  if ($fin_type == "Contributions") {
+        <?php } else  if ($acc_type == "Contributions") {
             $gettable = $mysqli->query("select * from f_contributions where branch = '$branch' and date_paid BETWEEN '$datefrom'
                                    AND '$dateto' ORDER by id DESC");
         ?>
@@ -310,7 +310,7 @@ function getName($id)
                     </table>
                 </div>
             </div>
-        <?php } else  if ($fin_type == "Ministry Partners") {
+        <?php } else  if ($acc_type == "Ministry Partners") {
             $gettable = $mysqli->query("select * from f_mpcontributions where branch = '$branch' and date_paid BETWEEN '$datefrom'
                                    AND '$dateto' ORDER by id DESC");
         ?>
