@@ -182,7 +182,6 @@ function getCompNameHeader($text)
                             </span></div><span class="avatar"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a>
                         <a class="dropdown-item" href="changepassword"><i class="me-50" data-feather="key"></i> Change <br />Password</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../login"><i class="me-50" data-feather="power"></i> Logout</a>
