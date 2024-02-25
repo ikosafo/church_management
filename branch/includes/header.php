@@ -300,7 +300,7 @@ function getCompNameHeader($text)
                 </li>
 
 
-
+                <!-- 
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="calendar"></i>
                         <span class="menu-title text-truncate" data-i18n="Customers">Meetings</span></a>
                     <ul class="menu-content">
@@ -326,9 +326,9 @@ function getCompNameHeader($text)
 
                     </ul>
                 </li>
+ -->
 
-
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="radio"></i>
+                <!--  <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="radio"></i>
                         <span class="menu-title text-truncate" data-i18n="Suppliers">Services</span></a>
                     <ul class="menu-content">
 
@@ -351,7 +351,7 @@ function getCompNameHeader($text)
 
                     </ul>
                 </li>
-
+ -->
 
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="dollar-sign"></i>
                         <span class="menu-title text-truncate" data-i18n="Customers">Financials</span></a>
