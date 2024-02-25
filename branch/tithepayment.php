@@ -40,6 +40,7 @@ $result = $app->fetch_assoc();
                 <div class="mb-1 col-md-12">
                     <label for="paymentmode" class="form-label">Payment Mode</label>
                     <select class="form-control bootstrap-select" id="paymentmode">
+                        <option></option>
                         <option value="Cash">Cash</option>
                         <option value="Cheque">Cheque</option>
                         <option value="Mobile Money">Mobile Money</option>

@@ -29,7 +29,7 @@ if ($paymenttype == 'Offering') {
                     <th>Purpose</th>
                     <th>Date Paid</th>
                     <th>Entry Period</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@ if ($paymenttype == 'Offering') {
                         <td><?php echo $restable['purpose']; ?></td>
                         <td><?php echo $restable['date_paid']; ?></td>
                         <td><?php echo $restable['period']; ?></td>
-                        <td>
+                        <!--  <td>
                             <button type="button" data-type="confirm" class="avatar bg-light-danger p-50 m-0 js-sweetalert delete_paymentoff" i_index="<?php echo $restable['id'] ?>" title="Delete" style="border:none">
                                 <div class="avatar-content">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-medium-5">
@@ -54,7 +54,7 @@ if ($paymenttype == 'Offering') {
                                 </div>
                             </button>
 
-                        </td>
+                        </td> -->
                     </tr>
                 <?php
                 }
@@ -90,7 +90,7 @@ if ($paymenttype == 'Offering') {
                     <th>Payment Mode</th>
                     <th>Date Paid</th>
                     <th>Entry Period</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -104,7 +104,7 @@ if ($paymenttype == 'Offering') {
                         <td><?php echo $restable['payment_mode']; ?></td>
                         <td><?php echo $restable['date_paid']; ?></td>
                         <td><?php echo $restable['period']; ?></td>
-                        <td>
+                        <!--  <td>
                             <button type="button" data-type="confirm" class="avatar bg-light-danger p-50 m-0 js-sweetalert delete_paymentoff" i_index="<?php echo $restable['id'] ?>" title="Delete" style="border:none">
                                 <div class="avatar-content">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-medium-5">
@@ -115,7 +115,7 @@ if ($paymenttype == 'Offering') {
                                     </svg>
                                 </div>
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 <?php
                 }
@@ -149,7 +149,7 @@ if ($paymenttype == 'Offering') {
                     <th>Payment For</th>
                     <th>Date Paid</th>
                     <th>Entry Period</th>
-                    <th>Action</th>
+                    <!--  <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -162,7 +162,7 @@ if ($paymenttype == 'Offering') {
                         <td><?php echo $restable['year_month']; ?></td>
                         <td><?php echo $restable['date_paid']; ?></td>
                         <td><?php echo $restable['period']; ?></td>
-                        <td>
+                        <!--  <td>
                             <button type="button" data-type="confirm" class="avatar bg-light-danger p-50 m-0 js-sweetalert delete_paymentoff" i_index="<?php echo $restable['id'] ?>" title="Delete" style="border:none">
                                 <div class="avatar-content">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-medium-5">
@@ -173,7 +173,7 @@ if ($paymenttype == 'Offering') {
                                     </svg>
                                 </div>
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 <?php
                 }
@@ -208,7 +208,7 @@ if ($paymenttype == 'Offering') {
                     <th>Payment For</th>
                     <th>Date Paid</th>
                     <th>Entry Period</th>
-                    <th>Action</th>
+                    <!--  <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -221,7 +221,7 @@ if ($paymenttype == 'Offering') {
                         <td><?php echo $restable['year']; ?></td>
                         <td><?php echo $restable['date_paid']; ?></td>
                         <td><?php echo $restable['period']; ?></td>
-                        <td>
+                        <!-- <td>
                             <button type="button" data-type="confirm" class="avatar bg-light-danger p-50 m-0 js-sweetalert delete_paymentoff" i_index="<?php echo $restable['id'] ?>" title="Delete" style="border:none">
                                 <div class="avatar-content">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-medium-5">
@@ -232,7 +232,7 @@ if ($paymenttype == 'Offering') {
                                     </svg>
                                 </div>
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 <?php
                 }
@@ -267,7 +267,7 @@ if ($paymenttype == 'Offering') {
                     <th>Purpose</th>
                     <th>Date Paid</th>
                     <th>Entry Period</th>
-                    <th>Action</th>
+                    <!--  <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -280,7 +280,7 @@ if ($paymenttype == 'Offering') {
                         <td><?php echo $restable['purpose']; ?></td>
                         <td><?php echo $restable['date_paid']; ?></td>
                         <td><?php echo $restable['period']; ?></td>
-                        <td>
+                        <!-- <td>
                             <button type="button" data-type="confirm" class="avatar bg-light-danger p-50 m-0 js-sweetalert delete_paymentoff" i_index="<?php echo $restable['id'] ?>" title="Delete" style="border:none">
                                 <div class="avatar-content">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-medium-5">
@@ -291,7 +291,7 @@ if ($paymenttype == 'Offering') {
                                     </svg>
                                 </div>
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 <?php
                 }
@@ -326,7 +326,7 @@ if ($paymenttype == 'Offering') {
                     <th>Purpose</th>
                     <th>Date Paid</th>
                     <th>Entry Period</th>
-                    <th>Action</th>
+                    <!--    <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -339,7 +339,7 @@ if ($paymenttype == 'Offering') {
                         <td><?php echo $restable['purpose']; ?></td>
                         <td><?php echo $restable['date_paid']; ?></td>
                         <td><?php echo $restable['period']; ?></td>
-                        <td>
+                        <!-- <td>
                             <button type="button" data-type="confirm" class="avatar bg-light-danger p-50 m-0 js-sweetalert delete_paymentoff" i_index="<?php echo $restable['id'] ?>" title="Delete" style="border:none">
                                 <div class="avatar-content">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-medium-5">
@@ -350,7 +350,7 @@ if ($paymenttype == 'Offering') {
                                     </svg>
                                 </div>
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 <?php
                 }
