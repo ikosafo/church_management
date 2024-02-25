@@ -158,6 +158,10 @@ function getCompNameHeader($text)
                     <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
 
+                <div>
+                    <strong style="color:yellow;background:green;padding:10px">MAIN ADMIN</strong>
+                </div>
+
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
 

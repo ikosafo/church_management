@@ -171,7 +171,9 @@ function getCompNameHeader($text)
                     <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
 
-
+                <div>
+                    <strong style="color:yellow;background:blue;padding:10px">BRANCH ADMIN</strong>
+                </div>
 
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
@@ -185,6 +187,7 @@ function getCompNameHeader($text)
                         <ul class="search-list search-list-main"></ul>
                     </div>
                 </li>
+
 
 
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
