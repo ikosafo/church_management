@@ -471,6 +471,25 @@ $random = $resdetails['random'];
     });
 
 
+    // Function to calculate age based on date of birth
+    function calculateAge(dob) {
+        const today = new Date();
+        const birthDate = new Date(dob);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+    // Event listener to calculate age when date of birth changes
+    document.getElementById('dob').addEventListener('change', function() {
+        const dob = this.value;
+        const age = calculateAge(dob);
+        document.getElementById('age').value = age;
+    });
+
     $("#dob").flatpickr();
     $("#baptismdate").flatpickr();
 

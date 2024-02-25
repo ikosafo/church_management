@@ -74,7 +74,9 @@ $resdetails = $getdetails->fetch_assoc();
                         </li>
                         <li class="mb-75">
                             <span class="fw-bolder me-25">Date of Baptism:</span>
-                            <span><?php echo $resdetails['baptismdate']; ?></span>
+                            <span><?php $db = $resdetails['baptismdate'];
+                                    echo ($db == '0000-00-00') ? "" : $db;
+                                    ?></span>
                         </li>
                         <li class="mb-75">
                             <span class="fw-bolder me-25">Confirmation Date:</span>
