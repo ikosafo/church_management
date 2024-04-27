@@ -131,6 +131,14 @@ $resdetails = $getdetails->fetch_assoc();
                 <div class="info-container">
                     <ul class="list-unstyled">
                         <li class="mb-75">
+                            <span class="fw-bolder me-25">Next of Kin:</span>
+                            <span><?php echo $resdetails['nextofkin']; ?></span>
+                        </li>
+                        <li class="mb-75">
+                            <span class="fw-bolder me-25">Next of Kin's Phone:</span>
+                            <span><?php echo $resdetails['nextofkinphone']; ?></span>
+                        </li>
+                        <li class="mb-75">
                             <span class="fw-bolder me-25">Name of Spouse:</span>
                             <span><?php echo $resdetails['spousename']; ?></span>
                         </li>
@@ -143,10 +151,6 @@ $resdetails = $getdetails->fetch_assoc();
                             <span><?php echo $resdetails['fathersname']; ?></span>
                         </li>
 
-                        <li class="mb-75">
-                            <span class="fw-bolder me-25">Father's Phone:</span>
-                            <span><?php echo $resdetails['fathersphone']; ?></span>
-                        </li>
 
                     </ul>
                 </div>
@@ -154,6 +158,12 @@ $resdetails = $getdetails->fetch_assoc();
             <div class="col-md-6">
                 <div class="info-container">
                     <ul class="list-unstyled">
+
+
+                        <li class="mb-75">
+                            <span class="fw-bolder me-25">Father's Phone:</span>
+                            <span><?php echo $resdetails['fathersphone']; ?></span>
+                        </li>
 
                         <li class="mb-75">
                             <span class="fw-bolder me-25">Mother's Name:</span>

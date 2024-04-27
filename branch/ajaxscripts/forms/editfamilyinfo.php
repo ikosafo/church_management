@@ -20,6 +20,17 @@ $resdetails = $getdetails->fetch_assoc();
 
     <div class="row">
         <div class="mb-1 col-md-6">
+            <label class="form-label" for="nextofkin">Next of Kin </label>
+            <input type="text" id="nextofkin" class="form-control" placeholder="Next of Kin" value="<?php echo $resdetails['nextofkin'] ?>" />
+        </div>
+        <div class="mb-1 col-md-6">
+            <label class="form-label" for="nextofkinphone">Telephone of Next of Kin</label>
+            <input type="number" id="nextofkinphone" class="form-control" placeholder="Telephone of Next of Kin" value="<?php echo $resdetails['nextofkinphone'] ?>" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-1 col-md-6">
             <label class="form-label" for="spousename">Name of Spouse </label>
             <input type="text" id="spousename" class="form-control" placeholder="Name of Spouse" value="<?php echo $resdetails['spousename'] ?>" />
         </div>
@@ -97,6 +108,8 @@ $resdetails = $getdetails->fetch_assoc();
         var mothersname = $("#mothersname").val();
         var mothersphone = $("#mothersphone").val();
         var childrennumber = $("#childrennumber").val();
+        var nextofkin = $("#nextofkin").val();
+        var nextofkinphone = $("#nextofkinphone").val();
         var memberid = '<?php echo $memberid; ?>';
 
         $.ajax({
@@ -115,7 +128,9 @@ $resdetails = $getdetails->fetch_assoc();
                 mothersname,
                 mothersphone,
                 childrennumber,
-                memberid
+                memberid,
+                nextofkin,
+                nextofkinphone
             },
             success: function(text) {
                 alert("Member information Updated");

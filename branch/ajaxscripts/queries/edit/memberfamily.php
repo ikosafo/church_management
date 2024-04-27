@@ -13,6 +13,9 @@ $mothersphone = mysqli_real_escape_string($mysqli, $_POST['mothersphone']);
 $childrennumber = mysqli_real_escape_string($mysqli, $_POST['childrennumber']);
 $telephone = mysqli_real_escape_string($mysqli, $_POST['telephone']);
 $memberid = mysqli_real_escape_string($mysqli, $_POST['memberid']);
+$nextofkin = mysqli_real_escape_string($mysqli, $_POST['nextofkin']);
+$nextofkinphone = mysqli_real_escape_string($mysqli, $_POST['nextofkinphone']);
+
 unset($_SESSION['telephone']);
 
 $updateQuery = $mysqli->query("UPDATE `members`
@@ -23,5 +26,8 @@ SET
   `fathersphone` = '$fathersphone',
   `mothersname` = '$mothersname',
   `mothersphone` = '$mothersphone',
-  `childrennumber` = '$childrennumber'
+  `childrennumber` = '$childrennumber',
+  `nextofkin` = '$nextofkin',
+  `nextofkinphone` = '$nextofkinphone'
+
 WHERE `id` = '$memberid'");

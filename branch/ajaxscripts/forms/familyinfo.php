@@ -15,6 +15,17 @@ $branch = $_SESSION['branch'];
 
     <div class="row">
         <div class="mb-1 col-md-6">
+            <label class="form-label" for="nextofkin">Next of Kin </label>
+            <input type="text" id="nextofkin" class="form-control" placeholder="Next of Kin" required />
+        </div>
+        <div class="mb-1 col-md-6">
+            <label class="form-label" for="nextofkinphone">Telephone of Next of Kin</label>
+            <input type="number" id="nextofkinphone" class="form-control" placeholder="Telephone of Next of Kin" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-1 col-md-6">
             <label class="form-label" for="spousename">Name of Spouse </label>
             <input type="text" id="spousename" class="form-control" placeholder="Name of Spouse" />
         </div>
@@ -98,6 +109,8 @@ $branch = $_SESSION['branch'];
         var mothersname = $("#mothersname").val();
         var mothersphone = $("#mothersphone").val();
         var childrennumber = $("#childrennumber").val();
+        var nextofkin = $("#nextofkin").val();
+        var nextofkinphone = $("#nextofkinphone").val();
 
         $.ajax({
             type: "POST",
@@ -114,7 +127,9 @@ $branch = $_SESSION['branch'];
                 fathersphone,
                 mothersname,
                 mothersphone,
-                childrennumber
+                childrennumber,
+                nextofkin,
+                nextofkinphone
             },
             success: function(text) {
                 alert("Member information saved");
